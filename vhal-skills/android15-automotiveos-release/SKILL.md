@@ -25,6 +25,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_DYNAMICS_STATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -37,6 +38,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.MILLIMETER
 - **Version**: 2
 - **Default Value**: {int32Values: [100000]}
@@ -55,6 +57,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.MILLI_SECS
 - **Version**: 2
 - **Default Value**: {int32Values: [1200]}
@@ -80,6 +83,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_POWER
+- **Protection Level**: signature|privileged|vendorPrivileged
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleApPowerBootupReason::USER_POWER_ON]}
 - **Data Type**: int32
@@ -92,6 +96,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE
 - **Requires Permission**: Car.PERMISSION_CAR_POWER
+- **Protection Level**: signature|privileged|vendorPrivileged
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleApPowerStateReport::WAIT_FOR_VHAL, 0]}
 - **Data Type**: int32[]
@@ -104,6 +109,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_POWER
+- **Protection Level**: signature|privileged|vendorPrivileged
 - **Version**: 1
 - **Config Array**: [0]
 - **Data Type**: int32[]
@@ -116,6 +122,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_SETTINGS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -128,6 +135,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: AutomaticEmergencyBrakingState, ErrorState
 - **Version**: 2
 - **Default Value**: {int32Values: [ErrorState::NOT_AVAILABLE_DISABLED]}
@@ -145,6 +153,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_SETTINGS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -157,6 +166,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: BlindSpotWarningState, ErrorState
 - **Version**: 2
 - **Default Value**: {int32Values: [BlindSpotWarningState::NO_WARNING]}
@@ -177,6 +187,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_INTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightState
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
@@ -190,6 +201,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_INTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightSwitch
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_OFF]}
@@ -296,6 +308,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_TIRES
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.KILOPASCAL
 - **Version**: 1
 - **Areas**:
@@ -317,6 +330,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_SETTINGS
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -329,6 +343,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: CrossTrafficMonitoringWarningState, ErrorState
 - **Version**: 3
 - **Default Value**: {int32Values: [CrossTrafficMonitoringWarningState::NO_WARNING]}
@@ -346,6 +361,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.WRITE
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: CruiseControlCommand
 - **Version**: 2
 - **Areas**:
@@ -362,6 +378,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_SETTINGS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -374,6 +391,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: CruiseControlState, ErrorState
 - **Version**: 2
 - **Default Value**: {int32Values: [CruiseControlState::ENABLED]}
@@ -391,6 +409,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.METER_PER_SEC
 - **Version**: 2
 - **Default Value**: {floatValues: [25.0]}
@@ -408,6 +427,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: CruiseControlType, ErrorState
 - **Version**: 2
 - **Default Value**: {int32Values: [CruiseControlType::ADAPTIVE]}
@@ -425,6 +445,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_POWERTRAIN
+- **Protection Level**: normal
 - **Data Enum**: VehicleGear
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleGear::GEAR_PARK]}
@@ -465,6 +486,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_DOORS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -482,6 +504,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_DOORS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Areas**:
   - **Area ID**: Constants::DOOR_1_LEFT
@@ -502,6 +525,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_DOORS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -527,6 +551,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_DOORS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -555,6 +580,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: DriverDistractionState, ErrorState
 - **Version**: 3
 - **Default Value**: {int32Values: [DriverDistractionState::NOT_DISTRACTED]}
@@ -583,6 +609,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: DriverDistractionWarning, ErrorState
 - **Version**: 3
 - **Default Value**: {int32Values: [DriverDistractionWarning::NO_WARNING]}
@@ -611,6 +638,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: DriverDrowsinessAttentionState, ErrorState
 - **Version**: 3
 - **Default Value**: {int32Values: [DriverDrowsinessAttentionState::KSS_RATING_3_ALERT]}
@@ -639,6 +667,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: DriverDrowsinessAttentionWarning, ErrorState
 - **Version**: 3
 - **Default Value**: {int32Values: [DriverDrowsinessAttentionWarning::NO_WARNING]}
@@ -667,6 +696,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_DYNAMICS_STATE
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -679,6 +709,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_DYNAMICS_STATE
+- **Protection Level**: signature|privileged
 - **Data Enum**: ElectronicStabilityControlState, ErrorState
 - **Version**: 3
 - **Default Value**: {int32Values: [ElectronicStabilityControlState::ENABLED]}
@@ -696,6 +727,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Data Enum**: ElectronicTollCollectionCardStatus
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
@@ -709,6 +741,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Data Enum**: ElectronicTollCollectionCardType
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
@@ -727,6 +760,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: EmergencyLaneKeepAssistState, ErrorState
 - **Version**: 2
 - **Default Value**: {int32Values: [EmergencyLaneKeepAssistState::ENABLED]}
@@ -744,6 +778,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_ENGINE_DETAILED
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.CELSIUS
 - **Version**: 1
 - **Default Value**: {floatValues: [75.0]}
@@ -758,6 +793,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_ENGINE_DETAILED
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -770,6 +806,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_ENGINE_DETAILED
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleOilLevel
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleOilLevel::NORMAL]}
@@ -783,6 +820,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_ENGINE_DETAILED
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.CELSIUS
 - **Version**: 1
 - **Default Value**: {floatValues: [101.0]}
@@ -797,6 +835,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_ENGINE_DETAILED
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.RPM
 - **Version**: 1
 - **Default Value**: {floatValues: [0.0]}
@@ -811,6 +850,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_ENVIRONMENT
+- **Protection Level**: normal
 - **Unit**: VehicleUnit.CELSIUS
 - **Version**: 1
 - **Default Value**: {floatValues: [25.0]}
@@ -836,6 +876,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY
+- **Protection Level**: dangerous
 - **Unit**: VehicleUnit.CELSIUS
 - **Version**: 3
 - **Default Value**: {floatValues: [25.0]}
@@ -863,6 +904,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY
+- **Protection Level**: dangerous
 - **Unit**: VehicleUnit.MILLIWATTS
 - **Version**: 1
 - **Default Value**: {floatValues: [0.0]}
@@ -877,6 +919,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY
+- **Protection Level**: dangerous
 - **Unit**: VehicleUnit.WATT_HOUR
 - **Version**: 1
 - **Default Value**: {floatValues: [150000.0]}
@@ -891,6 +934,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_POWERTRAIN
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -907,6 +951,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_ENERGY
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.AMPERE
 - **Version**: 1
 - **Default Value**: {floatValues: [12.5]}
@@ -922,6 +967,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_ENERGY
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {floatValues: [40.0]}
 - **Config Array**: [20, 40, 60, 80, 100]
@@ -935,6 +981,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY_PORTS
+- **Protection Level**: normal
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -947,6 +994,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ENERGY_PORTS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -959,6 +1007,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY
+- **Protection Level**: dangerous
 - **Data Enum**: EvChargeState
 - **Version**: 1
 - **Default Value**: {int32Values: [2]}
@@ -972,6 +1021,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_ENERGY
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -984,6 +1034,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY
+- **Protection Level**: dangerous
 - **Unit**: VehicleUnit.SECS
 - **Version**: 1
 - **Default Value**: {int32Values: [20]}
@@ -998,6 +1049,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY
+- **Protection Level**: dangerous
 - **Unit**: VehicleUnit.WATT_HOUR
 - **Version**: 2
 - **Default Value**: {floatValues: [150000.0]}
@@ -1011,6 +1063,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY
+- **Protection Level**: dangerous
 - **Data Enum**: EvRegenerativeBrakingState
 - **Version**: 1
 - **Default Value**: {int32Values: [2]}
@@ -1024,6 +1077,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_POWERTRAIN
+- **Protection Level**: signature|privileged
 - **Data Enum**: EvStoppingMode
 - **Version**: 2
 - **Default Value**: {int32Values: [Constants::EV_STOPPING_MODE_CREEP]}
@@ -1041,6 +1095,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_SETTINGS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -1053,6 +1108,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: ForwardCollisionWarningState, ErrorState
 - **Version**: 2
 - **Default Value**: {int32Values: [ForwardCollisionWarningState::NO_WARNING]}
@@ -1070,6 +1126,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightState
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
@@ -1083,6 +1140,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_EXTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightSwitch
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
@@ -1107,6 +1165,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ENERGY_PORTS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -1119,6 +1178,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY
+- **Protection Level**: dangerous
 - **Unit**: VehicleUnit.MILLILITER
 - **Version**: 1
 - **Default Value**: {floatValues: [15000.0]}
@@ -1133,6 +1193,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY
+- **Protection Level**: dangerous
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -1158,6 +1219,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_POWERTRAIN
+- **Protection Level**: normal
 - **Data Enum**: VehicleGear
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleGear::GEAR_PARK]}
@@ -1184,6 +1246,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_GLOVE_BOX
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1200,6 +1263,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_GLOVE_BOX
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1215,6 +1279,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: HandsOnDetectionDriverState, ErrorState
 - **Version**: 2
 - **Default Value**: {int32Values: [HandsOnDetectionDriverState::HANDS_ON]}
@@ -1243,6 +1308,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: HandsOnDetectionWarning, ErrorState
 - **Version**: 2
 - **Default Value**: {int32Values: [HandsOnDetectionWarning::NO_WARNING]}
@@ -1260,6 +1326,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightState
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
@@ -1273,6 +1340,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_EXTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightSwitch
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
@@ -1286,6 +1354,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightState
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
@@ -1299,6 +1368,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_EXTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightSwitch
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
@@ -1312,6 +1382,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_HEAD_UP_DISPLAY
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1327,6 +1398,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightState
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
@@ -1340,6 +1412,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_EXTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightSwitch
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
@@ -1353,6 +1426,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [50]}
 - **Areas**:
@@ -1376,6 +1450,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Config Flags**: Supported areaIds
 - **Version**: 1
 - **Default Value**: {int32Values: [1]}
@@ -1400,6 +1475,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [1]}
 - **Areas**:
@@ -1423,6 +1499,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1446,6 +1523,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1464,6 +1542,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1479,6 +1558,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1497,6 +1577,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleHvacFanDirection
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleHvacFanDirection::FACE]}
@@ -1521,6 +1602,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleHvacFanDirection
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::FAN_DIRECTION_UNKNOWN, Constants::FAN_DIRECTION_FACE, Constants::FAN_DIRECTION_FLOOR, Constants::FAN_DIRECTION_FACE_FLOOR, Constants::FAN_DIRECTION_DEFROST, Constants::FAN_DIRECTION_FACE_DEFROST, Constants::FAN_DIRECTION_FLOOR_DEFROST, Constants::FAN_DIRECTION_FLOOR_DEFROST_FACE]}
@@ -1545,6 +1627,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [3]}
 - **Areas**:
@@ -1573,6 +1656,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1596,6 +1680,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1613,6 +1698,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [1]}
 - **Areas**:
@@ -1637,6 +1723,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [1]}
 - **Areas**:
@@ -1660,6 +1747,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1689,6 +1777,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1718,6 +1807,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1733,6 +1823,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -1750,6 +1841,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.CELSIUS
 - **Version**: 1
 - **Default Value**: {floatValues: [19.1]}
@@ -1774,6 +1866,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleUnit
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleUnit::FAHRENHEIT]}
@@ -1788,6 +1881,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.CELSIUS
 - **Version**: 1
 - **Default Value**: {floatValues: [17.0]}
@@ -1819,6 +1913,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {floatValues: [66.19999694824219, VehicleUnit::FAHRENHEIT, 19.0, 66.2]}
 - **Data Type**: float[]
@@ -1914,6 +2009,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_POWERTRAIN
+- **Protection Level**: normal
 - **Data Enum**: VehicleIgnitionState
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleIgnitionState::ON]}
@@ -1927,6 +2023,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_IMPACT_SENSORS
+- **Protection Level**: signature|privileged
 - **Data Enum**: ImpactSensorLocation
 - **Version**: 3
 - **Default Value**: {int32Values: [0]}
@@ -1944,6 +2041,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Data Enum**: VehicleAreaSeat
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::SEAT_1_LEFT]}
@@ -1960,6 +2058,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Unit**: VehicleUnit.WATT_HOUR
 - **Version**: 1
 - **Default Value**: {floatValues: [150000.0]}
@@ -1973,6 +2072,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Data Enum**: EvConnectorType
 - **Version**: 1
 - **Default Value**: {int32Values: [EvConnectorType::IEC_TYPE_1_AC]}
@@ -1986,6 +2086,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Data Enum**: PortLocationType
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::CHARGE_PORT_FRONT_LEFT]}
@@ -1999,6 +2100,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Unit**: VehicleUnit.MILLIMETER
 - **Version**: 1
 - **Default Value**: {int32Values: [1776, 4950, 2008, 2140, 2984, 1665, 1667, 11800]}
@@ -2012,6 +2114,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Unit**: VehicleUnit.MILLILITER
 - **Version**: 1
 - **Default Value**: {floatValues: [15000.0]}
@@ -2025,6 +2128,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Data Enum**: PortLocationType
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::FUEL_DOOR_REAR_LEFT]}
@@ -2038,6 +2142,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Data Enum**: FuelType
 - **Version**: 1
 - **Default Value**: {int32Values: [FuelType::FUEL_TYPE_UNLEADED]}
@@ -2051,6 +2156,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Version**: 1
 - **Default Value**: {stringValue: Toy Vehicle}
 - **Data Type**: String
@@ -2063,6 +2169,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Version**: 1
 - **Default Value**: {stringValue: Speedy Model}
 - **Data Type**: String
@@ -2075,6 +2182,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Unit**: VehicleUnit.YEAR
 - **Version**: 1
 - **Default Value**: {int32Values: [2023]}
@@ -2088,6 +2196,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
+- **Protection Level**: normal
 - **Data Enum**: PortLocationType
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::CHARGE_PORT_FRONT_LEFT, Constants::CHARGE_PORT_REAR_LEFT]}
@@ -2101,6 +2210,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_IDENTIFICATION
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {stringValue: 1GCARVIN123456789}
 - **Data Type**: String
@@ -2123,6 +2233,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.WRITE
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: LaneCenteringAssistCommand
 - **Version**: 2
 - **Data Type**: int32
@@ -2135,6 +2246,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_SETTINGS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -2147,6 +2259,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: LaneCenteringAssistState, ErrorState
 - **Version**: 2
 - **Default Value**: {int32Values: [LaneCenteringAssistState::ENABLED]}
@@ -2164,6 +2277,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_SETTINGS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -2176,6 +2290,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: LaneDepartureWarningState, ErrorState
 - **Version**: 2
 - **Default Value**: {int32Values: [LaneDepartureWarningState::NO_WARNING]}
@@ -2193,6 +2308,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_SETTINGS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -2205,6 +2321,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: LaneKeepAssistState, ErrorState
 - **Version**: 2
 - **Default Value**: {int32Values: [LaneKeepAssistState::ENABLED]}
@@ -2233,6 +2350,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_SETTINGS
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -2245,6 +2363,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: LowSpeedAutomaticEmergencyBrakingState, ErrorState
 - **Version**: 3
 - **Default Value**: {int32Values: [LowSpeedAutomaticEmergencyBrakingState::ENABLED]}
@@ -2262,6 +2381,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_SETTINGS
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -2274,6 +2394,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
+- **Protection Level**: signature|privileged
 - **Data Enum**: LowSpeedCollisionWarningState, ErrorState
 - **Version**: 3
 - **Default Value**: {int32Values: [LowSpeedCollisionWarningState::NO_WARNING]}
@@ -2291,6 +2412,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_MIRRORS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [1]}
 - **Areas**:
@@ -2305,6 +2427,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_MIRRORS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [1]}
 - **Areas**:
@@ -2319,6 +2442,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_MIRRORS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -2331,6 +2455,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_MIRRORS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -2343,6 +2468,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_MIRRORS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2365,6 +2491,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_MIRRORS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2387,6 +2514,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_MIRRORS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2409,6 +2537,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_MIRRORS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2431,6 +2560,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_ENVIRONMENT
+- **Protection Level**: normal
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -2443,6 +2573,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_DIAGNOSTIC_READ_ALL
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Config Array**: [0, 0]
 - **Data Type**: mixed
@@ -2455,6 +2586,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.WRITE
 - **Requires Permission**: Car.PERMISSION_CAR_DIAGNOSTIC_CLEAR
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Config Array**: [1]
 - **Data Type**: mixed
@@ -2467,6 +2599,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_DIAGNOSTIC_READ_ALL
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Data Type**: mixed
 
@@ -2478,6 +2611,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_DIAGNOSTIC_READ_ALL
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Config Array**: [0, 0]
 - **Data Type**: mixed
@@ -2490,6 +2624,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_POWERTRAIN
+- **Protection Level**: normal
 - **Version**: 1
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -2502,6 +2637,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_POWERTRAIN
+- **Protection Level**: normal
 - **Version**: 1
 - **Default Value**: {int32Values: [1]}
 - **Data Type**: int32
@@ -2514,6 +2650,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_MILEAGE
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.KILOMETER
 - **Version**: 1
 - **Default Value**: {floatValues: [0.0]}
@@ -2528,6 +2665,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_STEERING_STATE
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.DEGREES
 - **Version**: 1
 - **Default Value**: {floatValues: [0.0]}
@@ -2542,6 +2680,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_STEERING_STATE
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.DEGREES
 - **Version**: 1
 - **Default Value**: {floatValues: [0.0]}
@@ -2556,6 +2695,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_SPEED
+- **Protection Level**: dangerous
 - **Unit**: VehicleUnit.METER_PER_SEC
 - **Version**: 1
 - **Default Value**: {floatValues: [0.0]}
@@ -2570,6 +2710,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_SPEED
+- **Protection Level**: dangerous
 - **Unit**: VehicleUnit.METER_PER_SEC
 - **Version**: 1
 - **Default Value**: {floatValues: [0.0]}
@@ -2584,6 +2725,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE
 - **Requires Permission**: Car.PERMISSION_CAR_POWER
+- **Protection Level**: signature|privileged|vendorPrivileged
 - **Version**: 2
 - **Data Type**: int32[]
 
@@ -2626,6 +2768,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ADJUST_RANGE_REMAINING
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.METER
 - **Version**: 1
 - **Default Value**: {floatValues: [50000.0]}
@@ -2641,6 +2784,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_INTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightState
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
@@ -2665,6 +2809,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_INTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightSwitch
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_OFF]}
@@ -2689,6 +2834,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightState
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
@@ -2702,6 +2848,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_EXTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightSwitch
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
@@ -2725,6 +2872,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_CAR_AIRBAGS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleAirbagLocation
 - **Version**: 3
 - **Default Value**: {int32Values: [0]}
@@ -2751,6 +2899,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_AIRBAGS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [1]}
 - **Areas**:
@@ -2768,6 +2917,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2796,6 +2946,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2824,6 +2975,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2852,6 +3004,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2880,6 +3033,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2903,6 +3057,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2931,6 +3086,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [10]}
 - **Areas**:
@@ -2959,6 +3115,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_CAR_SEAT_BELTS
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2982,6 +3139,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3010,6 +3168,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3038,6 +3197,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3066,6 +3226,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3094,6 +3255,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [1]}
 - **Areas**:
@@ -3111,6 +3273,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_INTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightState
 - **Version**: 2
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_OFF]}
@@ -3134,6 +3297,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_INTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightSwitch
 - **Version**: 2
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_OFF]}
@@ -3157,6 +3321,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3185,6 +3350,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3213,6 +3379,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3241,6 +3408,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3269,6 +3437,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3297,6 +3466,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3325,6 +3495,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3353,6 +3524,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3381,6 +3553,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3409,6 +3582,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3437,6 +3611,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3465,6 +3640,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3493,6 +3669,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3521,6 +3698,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3549,6 +3727,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3577,6 +3756,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3605,6 +3785,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.WRITE
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [1]}
 - **Areas**:
@@ -3630,6 +3811,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.WRITE
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [1]}
 - **Areas**:
@@ -3655,6 +3837,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleSeatOccupancyState
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleSeatOccupancyState::VACANT]}
@@ -3679,6 +3862,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3707,6 +3891,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3735,6 +3920,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3765,6 +3951,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_STEERING_WHEEL
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3781,6 +3968,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_STEERING_WHEEL
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3797,6 +3985,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_STEERING_WHEEL
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -3809,6 +3998,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_STEERING_WHEEL
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3825,6 +4015,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_STEERING_WHEEL
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3841,6 +4032,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_INTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightState
 - **Version**: 2
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
@@ -3858,6 +4050,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_INTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleLightSwitch
 - **Version**: 2
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
@@ -3875,6 +4068,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_STEERING_WHEEL
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -3887,6 +4081,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_STEERING_WHEEL
+- **Protection Level**: signature|privileged
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -3909,6 +4104,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_TIRES
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.KILOPASCAL
 - **Version**: 1
 - **Default Value**: {floatValues: [200.0]}
@@ -3950,6 +4146,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_DYNAMICS_STATE
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -3962,6 +4159,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_PRIVILEGED_CAR_INFO
+- **Protection Level**: signature|privileged
 - **Data Enum**: TrailerState
 - **Version**: 1
 - **Default Value**: {int32Values: [2]}
@@ -3975,6 +4173,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleTurnSignal
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleTurnSignal::NONE]}
@@ -3988,6 +4187,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ULTRASONICS_SENSOR_DATA
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Areas**:
   - **Area ID**: 1
@@ -4024,6 +4224,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ULTRASONICS_SENSOR_DATA
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Areas**:
   - **Area ID**: 1
@@ -4061,6 +4262,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ULTRASONICS_SENSOR_DATA
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Areas**:
   - **Area ID**: 1
@@ -4098,6 +4300,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ULTRASONICS_SENSOR_DATA
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Areas**:
   - **Area ID**: 1
@@ -4135,6 +4338,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ULTRASONICS_SENSOR_DATA
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Areas**:
   - **Area ID**: 1
@@ -4172,6 +4376,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ULTRASONICS_SENSOR_DATA
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Areas**:
   - **Area ID**: 1
@@ -4218,6 +4423,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_VALET_MODE
+- **Protection Level**: signature|privileged
 - **Version**: 3
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -4230,6 +4436,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_PRIVILEGED_CAR_INFO
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [2211]}
 - **Config Array**: [2948]
@@ -4244,6 +4451,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_DRIVING_STATE
+- **Protection Level**: signature|privileged
 - **Data Enum**: VehicleAutonomousState
 - **Version**: 3
 - **Default Value**: {int32Values: [VehicleAutonomousState::LEVEL_0]}
@@ -4268,6 +4476,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE
 - **Requires Permission**: Car.PERMISSION_VMS_PUBLISHER, Car.PERMISSION_VMS_SUBSCRIBER
+- **Protection Level**: signature|privileged, signature|privileged
 - **Version**: 1
 - **Data Type**: mixed
 
@@ -4325,6 +4534,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_SPEED
+- **Protection Level**: dangerous
 - **Version**: 1
 - **Default Value**: {int64Values: [0, 100000, 200000, 300000, 400000]}
 - **Config Array**: [15, 50000, 50000, 50000, 50000]
@@ -4339,6 +4549,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_WINDOWS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Areas**:
   - **Area ID**: Constants::WINDOW_1_RIGHT_2_LEFT_2_RIGHT
@@ -4352,6 +4563,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_WINDOWS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -4375,6 +4587,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_WINDOWS
+- **Protection Level**: signature|privileged
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -4398,6 +4611,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_WINDSHIELD_WIPERS
+- **Protection Level**: signature|privileged
 - **Unit**: VehicleUnit.MILLI_SECS
 - **Version**: 2
 - **Default Value**: {int32Values: [0]}
@@ -4418,6 +4632,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_WINDSHIELD_WIPERS
+- **Protection Level**: signature|privileged
 - **Data Enum**: WindshieldWipersState
 - **Version**: 2
 - **Default Value**: {int32Values: [WindshieldWipersState::OFF]}
@@ -4438,6 +4653,7 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_WINDSHIELD_WIPERS
+- **Protection Level**: signature|privileged
 - **Data Enum**: WindshieldWipersSwitch
 - **Version**: 2
 - **Default Value**: {int32Values: [WindshieldWipersSwitch::OFF]}
