@@ -15,6 +15,103 @@ This skill acts as the definitive source of truth and an advanced debugging refe
 2. **Implementation Guidance:** Provide accurate specifications (data types, access modes, change modes, and required permissions) when building services or apps that interact with the `CarPropertyManager` API.
 3. **Strict Validation:** Strictly enforce that only documented Android 15 properties are used. Do not invent, rename, or infer properties. If a property is not explicitly listed in this document, it must be treated as unavailable or unsupported.
 
+## Implementation Patterns (Best Practices)
+
+When generating application-level code for Android Automotive, always adhere to the following lifecycle-aware, performant, and reactive patterns. Prioritize Kotlin Coroutines and `Flow` over raw callbacks to prevent memory leaks and ensure main-thread safety.
+
+### 1. Reactive Property Observation (`callbackFlow`)
+
+Wrap `CarPropertyEventCallback` in a `callbackFlow` to create a safe, lifecycle-aware stream of vehicle updates.
+
+```kotlin
+import android.car.VehiclePropertyIds
+import android.car.hardware.CarPropertyValue
+import android.car.hardware.property.CarPropertyManager
+import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.callbackFlow
+
+fun CarPropertyManager.observeProperty(
+    propertyId: Int,
+    areaId: Int = 0,
+    rate: Float = CarPropertyManager.SENSOR_RATE_ONCHANGE
+): Flow<CarPropertyValue<*>> = callbackFlow {
+    val callback = object : CarPropertyManager.CarPropertyEventCallback {
+        override fun onChangeEvent(value: CarPropertyValue<*>) {
+            trySend(value) // Safe async dispatch
+        }
+
+        override fun onErrorEvent(propId: Int, zone: Int) {
+            // Log or handle hardware-level property errors
+        }
+    }
+
+    try {
+        registerCallback(callback, propertyId, rate)
+    } catch (e: SecurityException) {
+        close(e) // Missing permissions
+    } catch (e: IllegalArgumentException) {
+        close(e) // Property not supported on this vehicle
+    }
+
+    // Automatically unregister when the flow collector cancels/stops
+    awaitClose {
+        unregisterCallback(callback, propertyId)
+    }
+}
+```
+
+### 2. Lifecycle-Aware UI Collection
+
+When collecting property flows in a UI component (Fragment/Activity), always use `repeatOnLifecycle` to automatically pause VHAL communication when the app goes into the background. This saves system resources and limits battery drain from frequent sensor polling.
+
+```kotlin
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.launch
+
+// Inside Fragment or Activity
+viewLifecycleOwner.lifecycleScope.launch {
+    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+        // Example: Listen to vehicle speed at normal rate
+        carPropertyManager
+            .observeProperty(VehiclePropertyIds.PERF_VEHICLE_SPEED, rate = CarPropertyManager.SENSOR_RATE_NORMAL)
+            .collect { value ->
+                val speed = value.value as Float
+                // Update UI safely here
+            }
+    }
+}
+```
+
+### 3. Safe Synchronous Reads & Writes
+
+Use safe wrapper functions for explicit get/set calls. Always catch `PropertyNotAvailableException` and `SecurityException`. Property values might be briefly unavailable during system boot, component sleep states, or due to bad HAL implementations.
+
+```kotlin
+import android.car.hardware.property.PropertyNotAvailableException
+
+fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
+    return try {
+        val propValue = carPropertyManager.getProperty<Float>(
+            VehiclePropertyIds.PERF_VEHICLE_SPEED,
+            /* areaId= */ 0
+        )
+        propValue?.value
+    } catch (e: PropertyNotAvailableException) {
+        null // Sensor warming up or temporarily disabled
+    } catch (e: SecurityException) {
+        null // Handle missing runtime/system permissions
+    }
+}
+```
+
+### General Rules for Code Generation:
+
+1. **Framework Constants:** Always map HAL properties to `android.car.VehiclePropertyIds.<PROPERTY_NAME>`. Never use hardcoded Integer or Hex strings in application code.
+2. **Property Types:** Adhere strictly to the `Data Type` defined in this document (e.g., if a property is `int32[]`, cast it to `Integer[]` or `IntArray` safely).
+
 # Properties
 
 ### Property Name: ABS_ACTIVE
