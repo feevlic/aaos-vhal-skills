@@ -233,7 +233,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: AutomaticEmergencyBrakingState, ErrorState
+- **Data Enums**:
+  - **AutomaticEmergencyBrakingState**: OTHER = 0, ENABLED = 1, ACTIVATED = 2, USER_OVERRIDE = 3
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 2
 - **Default Value**: {int32Values: [ErrorState::NOT_AVAILABLE_DISABLED]}
 - **Areas**:
@@ -264,7 +266,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: BlindSpotWarningState, ErrorState
+- **Data Enums**:
+  - **BlindSpotWarningState**: OTHER = 0, NO_WARNING = 1, WARNING = 2
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 2
 - **Default Value**: {int32Values: [BlindSpotWarningState::NO_WARNING]}
 - **Areas**:
@@ -285,7 +289,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_INTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightState
+- **Data Enums**:
+  - **VehicleLightState**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
 - **Data Type**: int32
@@ -299,7 +304,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_INTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightSwitch
+- **Data Enums**:
+  - **VehicleLightSwitch**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2, AUTOMATIC = 0x100
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_OFF]}
 - **Data Type**: int32
@@ -311,7 +317,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **AIDL Summary**: Reports current state of CarEvsService types.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.WRITE
-- **Data Enum**: CameraServiceState
+- **Data Enums**:
+  - **CameraServiceState**: UNAVAILABLE = 0, INACTIVE = 1, REQUESTED = 2, ACTIVE = 3
 - **Version**: 3
 - **Default Value**: {int32Values: [CameraServiceState::UNAVAILABLE, CameraServiceState::UNAVAILABLE, CameraServiceState::UNAVAILABLE, CameraServiceState::UNAVAILABLE, CameraServiceState::UNAVAILABLE, CameraServiceState::UNAVAILABLE, CameraServiceState::UNAVAILABLE, CameraServiceState::UNAVAILABLE]}
 - **Data Type**: int32[]
@@ -441,7 +448,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: CrossTrafficMonitoringWarningState, ErrorState
+- **Data Enums**:
+  - **CrossTrafficMonitoringWarningState**: OTHER = 0, NO_WARNING = 1, WARNING_FRONT_LEFT = 2, WARNING_FRONT_RIGHT = 3, WARNING_FRONT_BOTH = 4, WARNING_REAR_LEFT = 5, WARNING_REAR_RIGHT = 6, WARNING_REAR_BOTH = 7
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 3
 - **Default Value**: {int32Values: [CrossTrafficMonitoringWarningState::NO_WARNING]}
 - **Areas**:
@@ -459,7 +468,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.WRITE
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: CruiseControlCommand
+- **Data Enums**:
+  - **CruiseControlCommand**: ACTIVATE = 1, SUSPEND = 2, INCREASE_TARGET_SPEED = 3, DECREASE_TARGET_SPEED = 4, INCREASE_TARGET_TIME_GAP = 5, DECREASE_TARGET_TIME_GAP = 6
 - **Version**: 2
 - **Areas**:
   - **Area ID**: 0
@@ -489,7 +499,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: CruiseControlState, ErrorState
+- **Data Enums**:
+  - **CruiseControlState**: OTHER = 0, ENABLED = 1, ACTIVATED = 2, USER_OVERRIDE = 3, SUSPENDED = 4, FORCED_DEACTIVATION_WARNING = 5
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 2
 - **Default Value**: {int32Values: [CruiseControlState::ENABLED]}
 - **Areas**:
@@ -525,7 +537,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: CruiseControlType, ErrorState
+- **Data Enums**:
+  - **CruiseControlType**: OTHER = 0, STANDARD = 1, ADAPTIVE = 2, PREDICTIVE = 3
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 2
 - **Default Value**: {int32Values: [CruiseControlType::ADAPTIVE]}
 - **Areas**:
@@ -543,7 +557,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_POWERTRAIN
 - **Protection Level**: normal
-- **Data Enum**: VehicleGear
+- **Data Enums**:
+  - **VehicleGear**: GEAR_UNKNOWN = 0x0000, GEAR_NEUTRAL = 0x0001, GEAR_REVERSE = 0x0002, GEAR_PARK = 0x0004, GEAR_DRIVE = 0x0008, GEAR_1 = 0x0010, GEAR_2 = 0x0020, GEAR_3 = 0x0040, GEAR_4 = 0x0080, GEAR_5 = 0x0100, GEAR_6 = 0x0200, GEAR_7 = 0x0400, GEAR_8 = 0x0800, GEAR_9 = 0x1000
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleGear::GEAR_PARK]}
 - **Config Array**: [VehicleGear::GEAR_PARK, VehicleGear::GEAR_NEUTRAL, VehicleGear::GEAR_REVERSE, VehicleGear::GEAR_1, VehicleGear::GEAR_2, VehicleGear::GEAR_3, VehicleGear::GEAR_4, VehicleGear::GEAR_5]
@@ -566,7 +581,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **AIDL Summary**: Distance units for display
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
-- **Data Enum**: VehicleUnit
+- **Data Enums**:
+  - **VehicleUnit**: SHOULD_NOT_USE = 0x000, METER_PER_SEC = 0x01, RPM = 0x02, HERTZ = 0x03, PERCENTILE = 0x10, MILLIMETER = 0x20, METER = 0x21, KILOMETER = 0x23, MILE = 0x24, CELSIUS = 0x30, FAHRENHEIT = 0x31, KELVIN = 0x32, MILLILITER = 0x40, LITER = 0x41, GALLON = 0x42, US_GALLON = 0x42, IMPERIAL_GALLON = 0x43, NANO_SECS = 0x50, MILLI_SECS = 0x51, SECS = 0x53, YEAR = 0x59, WATT_HOUR = 0x60, MILLIAMPERE = 0x61, MILLIVOLT = 0x62, MILLIWATTS = 0x63, AMPERE_HOURS = 0x64, KILOWATT_HOUR = 0x65, AMPERE = 0x66, KILOPASCAL = 0x70, PSI = 0x71, BAR = 0x72, DEGREES = 0x80, MILES_PER_HOUR = 0x90, KILOMETERS_PER_HOUR = 0x91
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleUnit::MILE]}
 - **Areas**:
@@ -678,7 +694,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: DriverDistractionState, ErrorState
+- **Data Enums**:
+  - **DriverDistractionState**: OTHER = 0, NOT_DISTRACTED = 1, DISTRACTED = 2
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 3
 - **Default Value**: {int32Values: [DriverDistractionState::NOT_DISTRACTED]}
 - **Areas**:
@@ -707,7 +725,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: DriverDistractionWarning, ErrorState
+- **Data Enums**:
+  - **DriverDistractionWarning**: OTHER = 0, NO_WARNING = 1, WARNING = 2
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 3
 - **Default Value**: {int32Values: [DriverDistractionWarning::NO_WARNING]}
 - **Areas**:
@@ -736,7 +756,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: DriverDrowsinessAttentionState, ErrorState
+- **Data Enums**:
+  - **DriverDrowsinessAttentionState**: OTHER = 0, KSS_RATING_1_EXTREMELY_ALERT = 1, KSS_RATING_2_VERY_ALERT = 2, KSS_RATING_3_ALERT = 3, KSS_RATING_4_RATHER_ALERT = 4, KSS_RATING_5_NEITHER_ALERT_NOR_SLEEPY = 5, KSS_RATING_6_SOME_SLEEPINESS = 6, KSS_RATING_7_SLEEPY_NO_EFFORT = 7, KSS_RATING_8_SLEEPY_SOME_EFFORT = 8, KSS_RATING_9_VERY_SLEEPY = 9
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 3
 - **Default Value**: {int32Values: [DriverDrowsinessAttentionState::KSS_RATING_3_ALERT]}
 - **Areas**:
@@ -765,7 +787,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: DriverDrowsinessAttentionWarning, ErrorState
+- **Data Enums**:
+  - **DriverDrowsinessAttentionWarning**: OTHER = 0, NO_WARNING = 1, WARNING = 2
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 3
 - **Default Value**: {int32Values: [DriverDrowsinessAttentionWarning::NO_WARNING]}
 - **Areas**:
@@ -807,7 +831,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_DYNAMICS_STATE
 - **Protection Level**: signature|privileged
-- **Data Enum**: ElectronicStabilityControlState, ErrorState
+- **Data Enums**:
+  - **ElectronicStabilityControlState**: OTHER = 0, ENABLED = 1, ACTIVATED = 2
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 3
 - **Default Value**: {int32Values: [ElectronicStabilityControlState::ENABLED]}
 - **Areas**:
@@ -825,7 +851,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
 - **Protection Level**: normal
-- **Data Enum**: ElectronicTollCollectionCardStatus
+- **Data Enums**:
+  - **ElectronicTollCollectionCardStatus**: UNKNOWN = 0, ELECTRONIC_TOLL_COLLECTION_CARD_VALID = 1, ELECTRONIC_TOLL_COLLECTION_CARD_INVALID = 2, ELECTRONIC_TOLL_COLLECTION_CARD_NOT_INSERTED = 3
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -839,7 +866,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
 - **Protection Level**: normal
-- **Data Enum**: ElectronicTollCollectionCardType
+- **Data Enums**:
+  - **ElectronicTollCollectionCardType**: UNKNOWN = 0, JP_ELECTRONIC_TOLL_COLLECTION_CARD = 1, JP_ELECTRONIC_TOLL_COLLECTION_CARD_V2 = 2
 - **Version**: 1
 - **Default Value**: {int32Values: [0]}
 - **Data Type**: int32
@@ -858,7 +886,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: EmergencyLaneKeepAssistState, ErrorState
+- **Data Enums**:
+  - **EmergencyLaneKeepAssistState**: OTHER = 0, ENABLED = 1, WARNING_LEFT = 2, WARNING_RIGHT = 3, ACTIVATED_STEER_LEFT = 4, ACTIVATED_STEER_RIGHT = 5, USER_OVERRIDE = 6
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 2
 - **Default Value**: {int32Values: [EmergencyLaneKeepAssistState::ENABLED]}
 - **Areas**:
@@ -904,7 +934,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_ENGINE_DETAILED
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleOilLevel
+- **Data Enums**:
+  - **VehicleOilLevel**: CRITICALLY_LOW = 0, LOW = 1, NORMAL = 2, HIGH = 3, ERROR = 4
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleOilLevel::NORMAL]}
 - **Data Type**: int32
@@ -987,7 +1018,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **AIDL Summary**: EV battery units for display
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
-- **Data Enum**: VehicleUnit
+- **Data Enums**:
+  - **VehicleUnit**: SHOULD_NOT_USE = 0x000, METER_PER_SEC = 0x01, RPM = 0x02, HERTZ = 0x03, PERCENTILE = 0x10, MILLIMETER = 0x20, METER = 0x21, KILOMETER = 0x23, MILE = 0x24, CELSIUS = 0x30, FAHRENHEIT = 0x31, KELVIN = 0x32, MILLILITER = 0x40, LITER = 0x41, GALLON = 0x42, US_GALLON = 0x42, IMPERIAL_GALLON = 0x43, NANO_SECS = 0x50, MILLI_SECS = 0x51, SECS = 0x53, YEAR = 0x59, WATT_HOUR = 0x60, MILLIAMPERE = 0x61, MILLIVOLT = 0x62, MILLIWATTS = 0x63, AMPERE_HOURS = 0x64, KILOWATT_HOUR = 0x65, AMPERE = 0x66, KILOPASCAL = 0x70, PSI = 0x71, BAR = 0x72, DEGREES = 0x80, MILES_PER_HOUR = 0x90, KILOMETERS_PER_HOUR = 0x91
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleUnit::KILOWATT_HOUR]}
 - **Config Array**: [VehicleUnit::WATT_HOUR, VehicleUnit::AMPERE_HOURS, VehicleUnit::KILOWATT_HOUR]
@@ -1105,7 +1137,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY
 - **Protection Level**: dangerous
-- **Data Enum**: EvChargeState
+- **Data Enums**:
+  - **EvChargeState**: UNKNOWN = 0, CHARGING = 1, FULLY_CHARGED = 2, NOT_CHARGING = 3, ERROR = 4
 - **Version**: 1
 - **Default Value**: {int32Values: [2]}
 - **Data Type**: int32
@@ -1161,7 +1194,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_ENERGY
 - **Protection Level**: dangerous
-- **Data Enum**: EvRegenerativeBrakingState
+- **Data Enums**:
+  - **EvRegenerativeBrakingState**: UNKNOWN = 0, DISABLED = 1, PARTIALLY_ENABLED = 2, FULLY_ENABLED = 3
 - **Version**: 1
 - **Default Value**: {int32Values: [2]}
 - **Data Type**: int32
@@ -1175,7 +1209,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_POWERTRAIN
 - **Protection Level**: signature|privileged
-- **Data Enum**: EvStoppingMode
+- **Data Enums**:
+  - **EvStoppingMode**: OTHER = 0, CREEP = 1, ROLL = 2, HOLD = 3
 - **Version**: 2
 - **Default Value**: {int32Values: [Constants::EV_STOPPING_MODE_CREEP]}
 - **Areas**:
@@ -1206,7 +1241,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: ForwardCollisionWarningState, ErrorState
+- **Data Enums**:
+  - **ForwardCollisionWarningState**: OTHER = 0, NO_WARNING = 1, WARNING = 2
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 2
 - **Default Value**: {int32Values: [ForwardCollisionWarningState::NO_WARNING]}
 - **Areas**:
@@ -1224,7 +1261,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightState
+- **Data Enums**:
+  - **VehicleLightState**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
 - **Data Type**: int32
@@ -1238,7 +1276,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_EXTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightSwitch
+- **Data Enums**:
+  - **VehicleLightSwitch**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2, AUTOMATIC = 0x100
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
 - **Data Type**: int32
@@ -1302,7 +1341,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **AIDL Summary**: Fuel volume units for display
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
-- **Data Enum**: VehicleUnit
+- **Data Enums**:
+  - **VehicleUnit**: SHOULD_NOT_USE = 0x000, METER_PER_SEC = 0x01, RPM = 0x02, HERTZ = 0x03, PERCENTILE = 0x10, MILLIMETER = 0x20, METER = 0x21, KILOMETER = 0x23, MILE = 0x24, CELSIUS = 0x30, FAHRENHEIT = 0x31, KELVIN = 0x32, MILLILITER = 0x40, LITER = 0x41, GALLON = 0x42, US_GALLON = 0x42, IMPERIAL_GALLON = 0x43, NANO_SECS = 0x50, MILLI_SECS = 0x51, SECS = 0x53, YEAR = 0x59, WATT_HOUR = 0x60, MILLIAMPERE = 0x61, MILLIVOLT = 0x62, MILLIWATTS = 0x63, AMPERE_HOURS = 0x64, KILOWATT_HOUR = 0x65, AMPERE = 0x66, KILOPASCAL = 0x70, PSI = 0x71, BAR = 0x72, DEGREES = 0x80, MILES_PER_HOUR = 0x90, KILOMETERS_PER_HOUR = 0x91
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleUnit::US_GALLON]}
 - **Config Array**: [VehicleUnit::LITER, VehicleUnit::US_GALLON]
@@ -1317,7 +1357,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_POWERTRAIN
 - **Protection Level**: normal
-- **Data Enum**: VehicleGear
+- **Data Enums**:
+  - **VehicleGear**: GEAR_UNKNOWN = 0x0000, GEAR_NEUTRAL = 0x0001, GEAR_REVERSE = 0x0002, GEAR_PARK = 0x0004, GEAR_DRIVE = 0x0008, GEAR_1 = 0x0010, GEAR_2 = 0x0020, GEAR_3 = 0x0040, GEAR_4 = 0x0080, GEAR_5 = 0x0100, GEAR_6 = 0x0200, GEAR_7 = 0x0400, GEAR_8 = 0x0800, GEAR_9 = 0x1000
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleGear::GEAR_PARK]}
 - **Config Array**: [VehicleGear::GEAR_PARK, VehicleGear::GEAR_NEUTRAL, VehicleGear::GEAR_REVERSE, VehicleGear::GEAR_DRIVE, VehicleGear::GEAR_1, VehicleGear::GEAR_2, VehicleGear::GEAR_3, VehicleGear::GEAR_4, VehicleGear::GEAR_5]
@@ -1330,7 +1371,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **AIDL Summary**: EU's General security regulation compliance requirement.
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
 - **Access**: VehiclePropertyAccess.READ
-- **Data Enum**: GsrComplianceRequirementType
+- **Data Enums**:
+  - **GsrComplianceRequirementType**: GSR_COMPLIANCE_NOT_REQUIRED = 0, GSR_COMPLIANCE_REQUIRED_V1 = 1
 - **Version**: 2
 - **Default Value**: {int32Values: [GsrComplianceRequirementType::GSR_COMPLIANCE_REQUIRED_V1]}
 - **Data Type**: int32
@@ -1377,7 +1419,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: HandsOnDetectionDriverState, ErrorState
+- **Data Enums**:
+  - **HandsOnDetectionDriverState**: OTHER = 0, HANDS_ON = 1, HANDS_OFF = 2
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 2
 - **Default Value**: {int32Values: [HandsOnDetectionDriverState::HANDS_ON]}
 - **Areas**:
@@ -1406,7 +1450,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_DRIVER_MONITORING_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: HandsOnDetectionWarning, ErrorState
+- **Data Enums**:
+  - **HandsOnDetectionWarning**: OTHER = 0, NO_WARNING = 1, WARNING = 2
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 2
 - **Default Value**: {int32Values: [HandsOnDetectionWarning::NO_WARNING]}
 - **Areas**:
@@ -1424,7 +1470,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightState
+- **Data Enums**:
+  - **VehicleLightState**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
 - **Data Type**: int32
@@ -1438,7 +1485,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_EXTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightSwitch
+- **Data Enums**:
+  - **VehicleLightSwitch**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2, AUTOMATIC = 0x100
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
 - **Data Type**: int32
@@ -1452,7 +1500,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightState
+- **Data Enums**:
+  - **VehicleLightState**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
 - **Data Type**: int32
@@ -1466,7 +1515,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_EXTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightSwitch
+- **Data Enums**:
+  - **VehicleLightSwitch**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2, AUTOMATIC = 0x100
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
 - **Data Type**: int32
@@ -1496,7 +1546,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightState
+- **Data Enums**:
+  - **VehicleLightState**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
 - **Data Type**: int32
@@ -1510,7 +1561,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_EXTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightSwitch
+- **Data Enums**:
+  - **VehicleLightSwitch**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2, AUTOMATIC = 0x100
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
 - **Data Type**: int32
@@ -1675,7 +1727,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleHvacFanDirection
+- **Data Enums**:
+  - **VehicleHvacFanDirection**: UNKNOWN = 0x0, FACE = 0x1, FLOOR = 0x2, FACE_AND_FLOOR = 0x3, DEFROST = 0x4, DEFROST_AND_FLOOR = 0x06
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleHvacFanDirection::FACE]}
 - **Areas**:
@@ -1700,7 +1753,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleHvacFanDirection
+- **Data Enums**:
+  - **VehicleHvacFanDirection**: UNKNOWN = 0x0, FACE = 0x1, FLOOR = 0x2, FACE_AND_FLOOR = 0x3, DEFROST = 0x4, DEFROST_AND_FLOOR = 0x06
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::FAN_DIRECTION_UNKNOWN, Constants::FAN_DIRECTION_FACE, Constants::FAN_DIRECTION_FLOOR, Constants::FAN_DIRECTION_FACE_FLOOR, Constants::FAN_DIRECTION_DEFROST, Constants::FAN_DIRECTION_FACE_DEFROST, Constants::FAN_DIRECTION_FLOOR_DEFROST, Constants::FAN_DIRECTION_FLOOR_DEFROST_FACE]}
 - **Areas**:
@@ -1964,7 +2018,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_CLIMATE
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleUnit
+- **Data Enums**:
+  - **VehicleUnit**: SHOULD_NOT_USE = 0x000, METER_PER_SEC = 0x01, RPM = 0x02, HERTZ = 0x03, PERCENTILE = 0x10, MILLIMETER = 0x20, METER = 0x21, KILOMETER = 0x23, MILE = 0x24, CELSIUS = 0x30, FAHRENHEIT = 0x31, KELVIN = 0x32, MILLILITER = 0x40, LITER = 0x41, GALLON = 0x42, US_GALLON = 0x42, IMPERIAL_GALLON = 0x43, NANO_SECS = 0x50, MILLI_SECS = 0x51, SECS = 0x53, YEAR = 0x59, WATT_HOUR = 0x60, MILLIAMPERE = 0x61, MILLIVOLT = 0x62, MILLIWATTS = 0x63, AMPERE_HOURS = 0x64, KILOWATT_HOUR = 0x65, AMPERE = 0x66, KILOPASCAL = 0x70, PSI = 0x71, BAR = 0x72, DEGREES = 0x80, MILES_PER_HOUR = 0x90, KILOMETERS_PER_HOUR = 0x91
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleUnit::FAHRENHEIT]}
 - **Config Array**: [VehicleUnit::FAHRENHEIT, VehicleUnit::CELSIUS]
@@ -2022,7 +2077,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **AIDL Summary**: Defines a custom OEM partner input event.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
-- **Data Enum**: CustomInputType
+- **Data Enums**:
+  - **CustomInputType**: CUSTOM_EVENT_F1 = 1001, CUSTOM_EVENT_F2 = 1002, CUSTOM_EVENT_F3 = 1003, CUSTOM_EVENT_F4 = 1004, CUSTOM_EVENT_F5 = 1005, CUSTOM_EVENT_F6 = 1006, CUSTOM_EVENT_F7 = 1007, CUSTOM_EVENT_F8 = 1008, CUSTOM_EVENT_F9 = 1009, CUSTOM_EVENT_F10 = 1010
 - **Version**: 1
 - **Default Value**: {int32Values: [0, 0, 0]}
 - **Config Array**: [0, 0, 0, 3, 0, 0, 0, 0, 0]
@@ -2093,7 +2149,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **AIDL Summary**: Property to feed H/W rotary events to android
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ
-- **Data Enum**: RotaryInputType
+- **Data Enums**:
+  - **RotaryInputType**: ROTARY_INPUT_TYPE_SYSTEM_NAVIGATION = 0, ROTARY_INPUT_TYPE_AUDIO_VOLUME = 1
 - **Version**: 1
 - **Default Value**: {int32Values: [0, 0, 0]}
 - **Data Type**: int32[]
@@ -2107,7 +2164,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_POWERTRAIN
 - **Protection Level**: normal
-- **Data Enum**: VehicleIgnitionState
+- **Data Enums**:
+  - **VehicleIgnitionState**: UNDEFINED = 0, LOCK = 1, OFF, ACC, ON, START
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleIgnitionState::ON]}
 - **Data Type**: int32
@@ -2121,7 +2179,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_IMPACT_SENSORS
 - **Protection Level**: signature|privileged
-- **Data Enum**: ImpactSensorLocation
+- **Data Enums**:
+  - **ImpactSensorLocation**: OTHER = 0x01, FRONT = 0x02, FRONT_LEFT_DOOR_SIDE = 0x04, FRONT_RIGHT_DOOR_SIDE = 0x08, REAR_LEFT_DOOR_SIDE = 0x10, REAR_RIGHT_DOOR_SIDE = 0x20, REAR = 0x40
 - **Version**: 3
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -2139,7 +2198,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
 - **Protection Level**: normal
-- **Data Enum**: VehicleAreaSeat
+- **Data Enums**:
+  - **VehicleAreaSeat**: UNKNOWN = 0x0000, ROW_1_LEFT = 0x0001, ROW_1_CENTER = 0x0002, ROW_1_RIGHT = 0x0004, ROW_2_LEFT = 0x0010, ROW_2_CENTER = 0x0020, ROW_2_RIGHT = 0x0040, ROW_3_LEFT = 0x0100, ROW_3_CENTER = 0x0200, ROW_3_RIGHT = 0x0400
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::SEAT_1_LEFT]}
 - **Areas**:
@@ -2170,7 +2230,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
 - **Protection Level**: normal
-- **Data Enum**: EvConnectorType
+- **Data Enums**:
+  - **EvConnectorType**: UNKNOWN = 0, IEC_TYPE_1_AC = 1, IEC_TYPE_2_AC = 2, IEC_TYPE_3_AC = 3, IEC_TYPE_4_DC = 4, IEC_TYPE_1_CCS_DC = 5, IEC_TYPE_2_CCS_DC = 6, TESLA_ROADSTER = 7, TESLA_HPWC = 8, TESLA_SUPERCHARGER = 9, GBT_AC = 10, GBT_DC = 11, OTHER = 101
 - **Version**: 1
 - **Default Value**: {int32Values: [EvConnectorType::IEC_TYPE_1_AC]}
 - **Data Type**: int32
@@ -2184,7 +2245,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
 - **Protection Level**: normal
-- **Data Enum**: PortLocationType
+- **Data Enums**:
+  - **PortLocationType**: UNKNOWN = 0, FRONT_LEFT = 1, FRONT_RIGHT = 2, REAR_RIGHT = 3, REAR_LEFT = 4, FRONT = 5, REAR = 6
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::CHARGE_PORT_FRONT_LEFT]}
 - **Data Type**: int32
@@ -2226,7 +2288,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
 - **Protection Level**: normal
-- **Data Enum**: PortLocationType
+- **Data Enums**:
+  - **PortLocationType**: UNKNOWN = 0, FRONT_LEFT = 1, FRONT_RIGHT = 2, REAR_RIGHT = 3, REAR_LEFT = 4, FRONT = 5, REAR = 6
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::FUEL_DOOR_REAR_LEFT]}
 - **Data Type**: int32
@@ -2240,7 +2303,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
 - **Protection Level**: normal
-- **Data Enum**: FuelType
+- **Data Enums**:
+  - **FuelType**: FUEL_TYPE_UNKNOWN = 0, FUEL_TYPE_UNLEADED = 1, FUEL_TYPE_LEADED = 2, FUEL_TYPE_DIESEL_1 = 3, FUEL_TYPE_DIESEL_2 = 4, FUEL_TYPE_BIODIESEL = 5, FUEL_TYPE_E85 = 6, FUEL_TYPE_LPG = 7, FUEL_TYPE_CNG = 8, FUEL_TYPE_LNG = 9, FUEL_TYPE_ELECTRIC = 10, FUEL_TYPE_HYDROGEN = 11, FUEL_TYPE_OTHER = 12
 - **Version**: 1
 - **Default Value**: {int32Values: [FuelType::FUEL_TYPE_UNLEADED]}
 - **Data Type**: int32
@@ -2294,7 +2358,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_INFO
 - **Protection Level**: normal
-- **Data Enum**: PortLocationType
+- **Data Enums**:
+  - **PortLocationType**: UNKNOWN = 0, FRONT_LEFT = 1, FRONT_RIGHT = 2, REAR_RIGHT = 3, REAR_LEFT = 4, FRONT = 5, REAR = 6
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::CHARGE_PORT_FRONT_LEFT, Constants::CHARGE_PORT_REAR_LEFT]}
 - **Data Type**: int32[]
@@ -2331,7 +2396,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.WRITE
 - **Requires Permission**: Car.PERMISSION_CONTROL_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: LaneCenteringAssistCommand
+- **Data Enums**:
+  - **LaneCenteringAssistCommand**: ACTIVATE = 1, DEACTIVATE = 2
 - **Version**: 2
 - **Data Type**: int32
 
@@ -2357,7 +2423,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: LaneCenteringAssistState, ErrorState
+- **Data Enums**:
+  - **LaneCenteringAssistState**: OTHER = 0, ENABLED = 1, ACTIVATION_REQUESTED = 2, ACTIVATED = 3, USER_OVERRIDE = 4, FORCED_DEACTIVATION_WARNING = 5
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 2
 - **Default Value**: {int32Values: [LaneCenteringAssistState::ENABLED]}
 - **Areas**:
@@ -2388,7 +2456,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: LaneDepartureWarningState, ErrorState
+- **Data Enums**:
+  - **LaneDepartureWarningState**: OTHER = 0, NO_WARNING = 1, WARNING_LEFT = 2, WARNING_RIGHT = 3
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 2
 - **Default Value**: {int32Values: [LaneDepartureWarningState::NO_WARNING]}
 - **Areas**:
@@ -2419,7 +2489,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: LaneKeepAssistState, ErrorState
+- **Data Enums**:
+  - **LaneKeepAssistState**: OTHER = 0, ENABLED = 1, ACTIVATED_STEER_LEFT = 2, ACTIVATED_STEER_RIGHT = 3, USER_OVERRIDE = 4
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 2
 - **Default Value**: {int32Values: [LaneKeepAssistState::ENABLED]}
 - **Areas**:
@@ -2461,7 +2533,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: LowSpeedAutomaticEmergencyBrakingState, ErrorState
+- **Data Enums**:
+  - **LowSpeedAutomaticEmergencyBrakingState**: OTHER = 0, ENABLED = 1, ACTIVATED = 2, USER_OVERRIDE = 3
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 3
 - **Default Value**: {int32Values: [LowSpeedAutomaticEmergencyBrakingState::ENABLED]}
 - **Areas**:
@@ -2492,7 +2566,9 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_ADAS_STATES
 - **Protection Level**: signature|privileged
-- **Data Enum**: LowSpeedCollisionWarningState, ErrorState
+- **Data Enums**:
+  - **LowSpeedCollisionWarningState**: OTHER = 0, NO_WARNING = 1, WARNING = 2
+  - **ErrorState**: OTHER_ERROR_STATE = -1, NOT_AVAILABLE_DISABLED = -2, NOT_AVAILABLE_SPEED_LOW = -3, NOT_AVAILABLE_SPEED_HIGH = -4, NOT_AVAILABLE_POOR_VISIBILITY = -5, NOT_AVAILABLE_SAFETY = -6
 - **Version**: 3
 - **Default Value**: {int32Values: [LowSpeedCollisionWarningState::NO_WARNING]}
 - **Areas**:
@@ -2882,7 +2958,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_INTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightState
+- **Data Enums**:
+  - **VehicleLightState**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
 - **Areas**:
@@ -2907,7 +2984,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_INTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightSwitch
+- **Data Enums**:
+  - **VehicleLightSwitch**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2, AUTOMATIC = 0x100
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_OFF]}
 - **Areas**:
@@ -2932,7 +3010,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightState
+- **Data Enums**:
+  - **VehicleLightState**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
 - **Data Type**: int32
@@ -2946,7 +3025,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_EXTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightSwitch
+- **Data Enums**:
+  - **VehicleLightSwitch**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2, AUTOMATIC = 0x100
 - **Version**: 1
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
 - **Data Type**: int32
@@ -2970,7 +3050,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_CAR_AIRBAGS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleAirbagLocation
+- **Data Enums**:
+  - **VehicleAirbagLocation**: OTHER = 0x01, FRONT = 0x02, KNEE = 0x04, LEFT_SIDE = 0x08, RIGHT_SIDE = 0x10, CURTAIN = 0x20
 - **Version**: 3
 - **Default Value**: {int32Values: [0]}
 - **Areas**:
@@ -3371,7 +3452,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_INTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightState
+- **Data Enums**:
+  - **VehicleLightState**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2
 - **Version**: 2
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_OFF]}
 - **Areas**:
@@ -3395,7 +3477,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_INTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightSwitch
+- **Data Enums**:
+  - **VehicleLightSwitch**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2, AUTOMATIC = 0x100
 - **Version**: 2
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_OFF]}
 - **Areas**:
@@ -3935,7 +4018,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_CAR_SEATS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleSeatOccupancyState
+- **Data Enums**:
+  - **VehicleSeatOccupancyState**: UNKNOWN = 0, VACANT = 1, OCCUPIED = 2
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleSeatOccupancyState::VACANT]}
 - **Areas**:
@@ -4036,7 +4120,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **AIDL Summary**: Request the head unit to be shutdown.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.WRITE
-- **Data Enum**: VehicleApPowerStateShutdownParam
+- **Data Enums**:
+  - **VehicleApPowerStateShutdownParam**: SHUTDOWN_IMMEDIATELY = 1, CAN_SLEEP = 2, SHUTDOWN_ONLY = 3, SLEEP_IMMEDIATELY = 4, HIBERNATE_IMMEDIATELY = 5, CAN_HIBERNATE = 6, EMERGENCY_SHUTDOWN = 7
 - **Version**: 2
 - **Data Type**: int32
 
@@ -4130,7 +4215,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_INTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightState
+- **Data Enums**:
+  - **VehicleLightState**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2
 - **Version**: 2
 - **Default Value**: {int32Values: [Constants::LIGHT_STATE_ON]}
 - **Areas**:
@@ -4148,7 +4234,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_INTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleLightSwitch
+- **Data Enums**:
+  - **VehicleLightSwitch**: OFF = 0, ON = 1, DAYTIME_RUNNING = 2, AUTOMATIC = 0x100
 - **Version**: 2
 - **Default Value**: {int32Values: [Constants::LIGHT_SWITCH_AUTO]}
 - **Areas**:
@@ -4229,7 +4316,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **AIDL Summary**: Tire pressure units for display
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
-- **Data Enum**: VehicleUnit
+- **Data Enums**:
+  - **VehicleUnit**: SHOULD_NOT_USE = 0x000, METER_PER_SEC = 0x01, RPM = 0x02, HERTZ = 0x03, PERCENTILE = 0x10, MILLIMETER = 0x20, METER = 0x21, KILOMETER = 0x23, MILE = 0x24, CELSIUS = 0x30, FAHRENHEIT = 0x31, KELVIN = 0x32, MILLILITER = 0x40, LITER = 0x41, GALLON = 0x42, US_GALLON = 0x42, IMPERIAL_GALLON = 0x43, NANO_SECS = 0x50, MILLI_SECS = 0x51, SECS = 0x53, YEAR = 0x59, WATT_HOUR = 0x60, MILLIAMPERE = 0x61, MILLIVOLT = 0x62, MILLIWATTS = 0x63, AMPERE_HOURS = 0x64, KILOWATT_HOUR = 0x65, AMPERE = 0x66, KILOPASCAL = 0x70, PSI = 0x71, BAR = 0x72, DEGREES = 0x80, MILES_PER_HOUR = 0x90, KILOMETERS_PER_HOUR = 0x91
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleUnit::PSI]}
 - **Config Array**: [VehicleUnit::KILOPASCAL, VehicleUnit::PSI, VehicleUnit::BAR]
@@ -4257,7 +4345,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_PRIVILEGED_CAR_INFO
 - **Protection Level**: signature|privileged
-- **Data Enum**: TrailerState
+- **Data Enums**:
+  - **TrailerState**: UNKNOWN = 0, NOT_PRESENT = 1, PRESENT = 2, ERROR = 3
 - **Version**: 1
 - **Default Value**: {int32Values: [2]}
 - **Data Type**: int32
@@ -4271,7 +4360,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_EXTERIOR_LIGHTS
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleTurnSignal
+- **Data Enums**:
+  - **VehicleTurnSignal**: NONE = 0x00, RIGHT = 0x01, LEFT = 0x02
 - **Version**: 1
 - **Default Value**: {int32Values: [VehicleTurnSignal::NONE]}
 - **Data Type**: int32
@@ -4549,7 +4639,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CAR_DRIVING_STATE
 - **Protection Level**: signature|privileged
-- **Data Enum**: VehicleAutonomousState
+- **Data Enums**:
+  - **VehicleAutonomousState**: LEVEL_0 = 0, LEVEL_1 = 1, LEVEL_2 = 2, LEVEL_3 = 3, LEVEL_4 = 4, LEVEL_5 = 5
 - **Version**: 3
 - **Default Value**: {int32Values: [VehicleAutonomousState::LEVEL_0]}
 - **Data Type**: int32
@@ -4730,7 +4821,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_READ_WINDSHIELD_WIPERS
 - **Protection Level**: signature|privileged
-- **Data Enum**: WindshieldWipersState
+- **Data Enums**:
+  - **WindshieldWipersState**: OTHER = 0, OFF = 1, ON = 2, SERVICE = 3
 - **Version**: 2
 - **Default Value**: {int32Values: [WindshieldWipersState::OFF]}
 - **Areas**:
@@ -4751,7 +4843,8 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
 - **Access**: VehiclePropertyAccess.READ_WRITE, VehiclePropertyAccess.READ
 - **Requires Permission**: Car.PERMISSION_CONTROL_WINDSHIELD_WIPERS
 - **Protection Level**: signature|privileged
-- **Data Enum**: WindshieldWipersSwitch
+- **Data Enums**:
+  - **WindshieldWipersSwitch**: OTHER = 0, OFF = 1, MIST = 2, INTERMITTENT_LEVEL_1 = 3, INTERMITTENT_LEVEL_2 = 4, INTERMITTENT_LEVEL_3 = 5, INTERMITTENT_LEVEL_4 = 6, INTERMITTENT_LEVEL_5 = 7, CONTINUOUS_LEVEL_1 = 8, CONTINUOUS_LEVEL_2 = 9, CONTINUOUS_LEVEL_3 = 10, CONTINUOUS_LEVEL_4 = 11, CONTINUOUS_LEVEL_5 = 12, AUTO = 13, SERVICE = 14
 - **Version**: 2
 - **Default Value**: {int32Values: [WindshieldWipersSwitch::OFF]}
 - **Areas**:
