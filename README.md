@@ -10,6 +10,6 @@ A massive thank you to [@google](https://github.com/google) for loving open sour
 2. Point your AI assistant (Copilot, Cursor, Claude, etc.) to the `SKILL.md` file (e.g., via `.cursorrules`, `.vscode/copilot-instructions.md`, or Claude Projects).
 3. Ensure both `SKILL.md` and `properties-reference.md` are kept together. Your AI will progressively load the reference file to fetch exactly the right properties if needed.
 
-# Future Versions
+## Future Versions
 
 If Google ever decides to bless us with a new Android OS version and a (completly) revamped VHAL, I'll eventually get around to releasing a new skill for it.
