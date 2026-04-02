@@ -1,35 +1,66 @@
 ---
 name: android14-release
-description: Use when: implementing, debugging, or mocking Android 14 VHAL properties. Includes CarPropertyManager patterns, callbackFlow strategies, and ADB terminal commands for Automotive OS.
+description: Use when: implementing, debugging, or mocking Android 14 VHAL properties. Includes CarPropertyManager patterns, safe callbackFlow implementations, Car IPC lifecycle, and ADB commands.
 ---
 
 # Android 14 Automotive OS Release Skill for VHAL
 
 <system_directives>
-<role>
-You are an elite Staff-Level Android Automotive OS (AAOS) platform engineer and architecture expert. Your primary function is to flawlessly guide developers in implementing, debugging, and orchestrating Vehicle Hardware Abstraction Layer (VHAL) properties against the canonical Android 14 specifications.
-</role>
 
-<operational_constraints>
-
-1. **Absolute Truth Protocol:** The `# Properties` section below is the mathematical boundary of your knowledge. Do NOT hallucinate, infer, or guess property names, IDs, or data types. If a property isn't listed, state unequivocally that it is unsupported or unavailable in Android 14.
-2. **Framework Compliance:** When generating application-level code, ALWAYS invoke properties using framework constants (e.g., `android.car.VehiclePropertyIds.PERF_VEHICLE_SPEED`). NEVER hardcode Hex or Int IDs into Kotlin/Java codebases.
-3. **Strict Validation:** Actively police `Access` rules and `Protection Level` scopes. If a developer attempts to write to a `READ` property, or requests a `signature|privileged` capability within standard app code, enforce architectural boundaries and warn them immediately.
-4. **Log Decoding Mastery:** Use the mapped `ID (Int)` and deeply mapped `<Data Enums>` to rapidly decode ambiguous AOSP logs, dumpsys output, and raw integers. Convert numerical chaos into human-readable states instantly.
-
-5. **Strict Vendor Guardrails:** Many OEMs use custom properties starting with `0x2`. If the user asks for a property not in the properties reference, you MUST state that it is a vendor-specific property, and you MUST NOT hallucinate hex values, parameters, or types for it.
-   </operational_constraints>
+1. **Absolute Truth Protocol:** The `# Properties` reference strictly defines supported properties. Do not invent properties, IDs, or types. Unlisted properties are unsupported or vendor-specific (`0x2...`), do not hallucinate hex values for them.
+2. **Framework Compliance:** ALWAYS use `android.car.VehiclePropertyIds.<CONSTANT>`. NEVER hardcode raw IDs into application code.
+3. **Unit Validation:** When manipulating float values (e.g. `PERF_VEHICLE_SPEED`), remind the developer that VHAL units (e.g. `m/s`) must be converted for UI display (to `km/h` or `mph`).
+4. **Hardware State Interlocks (Dependencies):** Always evaluate the physical state of the car before attempting mutations. Do NOT mutate dependent properties (e.g., `HVAC_FAN_SPEED`) without verifying the prerequisite state (e.g., `HVAC_POWER_ON == true`). Enforce gear or speed checks (e.g., `GEAR_SELECTION == PARK`, `PERF_VEHICLE_SPEED == 0f`) for safety-critical actions like `TRUNK_DOOR_MOVE` or `PARKING_BRAKE_ON`.
+5. **AOSP Permissions Awareness:** When generating VHAL code, proactively comment which `android.car.permission.CAR_*` manifest permission the developer needs to declare to use the requested property.
    </system_directives>
 
 ## Implementation Patterns (Best Practices)
 
 <code_generation_rules>
-When generating application-level code for Android Automotive, you must strictly adhere to the following lifecycle-aware, performant, and reactive patterns. Prioritize Kotlin Coroutines and `Flow` over raw callbacks to prevent memory leaks and ensure main-thread safety.
+Adhere to production-grade AAOS architecture: strictly handle IPC connection state (`Car` lifecycle) and avoid crashing reactive streams. Use a sealed interface to wrap sensor states securely.
 </code_generation_rules>
 
-### 1. Reactive Property Observation (`callbackFlow`)
+### 1. Unified Result State (Sealed Interface)
 
-Wrap `CarPropertyEventCallback` in a `callbackFlow` to create a safe, lifecycle-aware stream of vehicle updates.
+Never close a `Flow` due to missing properties or permissions, as this crashes downstream UI collectors in Automotive apps. Yield states instead:
+
+```kotlin
+import android.car.hardware.CarPropertyValue
+
+sealed interface VhalResult<out T> {
+    data class Success<T>(val property: CarPropertyValue<T>) : VhalResult<T>
+    data class Unavailable(val reason: String) : VhalResult<Nothing>
+    object PermissionDenied : VhalResult<Nothing>
+}
+```
+
+### 1b. Lifecycle-Aware UI Collection
+
+When collecting VHAL flows in an Activity or Fragment, ALWAYS use `repeatOnLifecycle` to prevent the UI from processing foreground sensor updates while backgrounded. This mitigates battery drain and avoids ANRs.
+
+```kotlin
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
+import kotlinx.coroutines.launch
+
+// Example UI usage:
+lifecycleScope.launch {
+    repeatOnLifecycle(Lifecycle.State.STARTED) {
+        observeVehicleSpeedSafe(context).collect { result ->
+            when (result) {
+                is VhalResult.Success -> { /* Update UI */ }
+                is VhalResult.Unavailable -> { /* Handle error */ }
+                is VhalResult.PermissionDenied -> { /* Request permissions */ }
+            }
+        }
+    }
+}
+```
+
+### 2. IPC Lifecycle & Reactive Observation
+
+Connecting to the VHAL requires strict `Car.createCar` lifecycle management. `CarPropertyManager` instances can become stale if the Car Service crashes. Always generate code that handles `Car` connection lifecycle and uses safe `callbackFlow` implementations.
 
 ```kotlin
 import android.car.VehiclePropertyIds
@@ -38,106 +69,97 @@ import android.car.hardware.property.CarPropertyManager
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.conflate
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.Dispatchers
 
-fun CarPropertyManager.observeProperty(
-    propertyId: Int,
-    areaId: Int = 0,
-    rate: Float = CarPropertyManager.SENSOR_RATE_ONCHANGE
-): Flow<CarPropertyValue<*>> = callbackFlow {
+// IMPORTANT: The `CarPropertyManager` instance should be provided via Dependency Injection (e.g., Hilt) if Hilt is inside the project,
+// created once per Application or Activity lifecycle. NEVER instantiate or disconnect `Car` inside a sensor flow.
+fun observeVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Flow<VhalResult<Float>> = callbackFlow {
     val callback = object : CarPropertyManager.CarPropertyEventCallback {
         override fun onChangeEvent(value: CarPropertyValue<*>) {
-            trySend(value) // Safe async dispatch
+            @Suppress("UNCHECKED_CAST")
+            trySend(VhalResult.Success(value as CarPropertyValue<Float>))
         }
 
         override fun onErrorEvent(propId: Int, zone: Int) {
-            // Log or handle hardware-level property errors
+            trySend(VhalResult.Unavailable("Hardware error for zone $zone"))
         }
     }
 
     try {
-        registerCallback(callback, propertyId, rate)
+        carPropertyManager.registerCallback(
+            callback,
+            VehiclePropertyIds.PERF_VEHICLE_SPEED,
+            CarPropertyManager.SENSOR_RATE_NORMAL
+        )
     } catch (e: SecurityException) {
-        close(e) // Missing permissions
+        trySend(VhalResult.PermissionDenied)
     } catch (e: IllegalArgumentException) {
-        close(e) // Property not supported on this vehicle
+        trySend(VhalResult.Unavailable("Property unsupported to observe"))
     }
 
-    // Automatically unregister when the flow collector cancels/stops
     awaitClose {
-        unregisterCallback(callback, propertyId)
+        // NEVER disconnect the `Car` IPC session here. Only unregister the callback.
+        carPropertyManager.unregisterCallback(callback, VehiclePropertyIds.PERF_VEHICLE_SPEED)
     }
-}
+}.conflate() // Use conflate() to drop stale sensor frames if the UI is slow, preventing OOM / jank on high-freq sensors
+.flowOn(Dispatchers.IO)
 ```
 
-### 2. Lifecycle-Aware UI Collection
-
-When collecting property flows in a UI component (Fragment/Activity), always use `repeatOnLifecycle` to automatically pause VHAL communication when the app goes into the background. This saves system resources and limits battery drain from frequent sensor polling.
-
-```kotlin
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import kotlinx.coroutines.launch
-
-// Inside Fragment or Activity
-viewLifecycleOwner.lifecycleScope.launch {
-    viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-        // Example: Listen to vehicle speed at normal rate
-        carPropertyManager
-            .observeProperty(VehiclePropertyIds.PERF_VEHICLE_SPEED, rate = CarPropertyManager.SENSOR_RATE_NORMAL)
-            .collect { value ->
-                val speed = value.value as Float
-                // Update UI safely here
-            }
-    }
-}
-```
-
-### 3. Safe Synchronous Reads & Writes
-
-Use safe wrapper functions for explicit get/set calls. Always catch `PropertyNotAvailableException` and `SecurityException`. Property values might be briefly unavailable during system boot, component sleep states, or due to bad HAL implementations.
+### 3. Safe Synchronous Reads
 
 ```kotlin
 import android.car.hardware.property.PropertyNotAvailableException
 
-fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float? {
+fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float {
     return try {
-        val propValue = carPropertyManager.getProperty<Float>(
+        // Use primitive zero-allocation getters instead of generic wrapper allocations
+        val propValue = carPropertyManager.getFloatProperty(
             VehiclePropertyIds.PERF_VEHICLE_SPEED,
-            /* areaId= */ 0
+            0
         )
-        propValue?.value
+        // VHAL emits speed in meters per second (m/s)
+        propValue
     } catch (e: PropertyNotAvailableException) {
-        null // Sensor warming up or temporarily disabled
+        0f // Sensor warming up/disabled
     } catch (e: SecurityException) {
-        null // Handle missing runtime/system permissions
+        0f // Missing permissions
     }
 }
 ```
 
-### General Rules for Code Generation:
+### 5. Actuation Latency & State Flickering (The "Echo" Race Condition)
 
-1. **Framework Constants:** Always map HAL properties to `android.car.VehiclePropertyIds.<PROPERTY_NAME>`. Never use hardcoded Integer or Hex strings in application code.
-2. **Property Types:** Adhere strictly to the `Data Type` defined in this document (e.g., if a property is `int32[]`, cast it to `Integer[]` or `IntArray` safely).
+Vehicle networks (CAN/LIN/Ethernet) have physical latency (100ms - 500ms). When you mutate a property via `setProperty`, the ECU takes time to actuate. During this window, `CarPropertyEventCallback` will often emit the **old** value, causing the UI to flicker (e.g., ON -> OFF -> ON).
 
-## ADB & VHAL Debugging Commands (Mocking / Testing)
+When generating UI or ViewModel code that binds to VHAL properties, **ALWAYS** instruct the developer to implement Optimistic UI with a debounce:
+
+```kotlin
+// In a ViewModel or State Holder:
+// 1. User toggles a setting
+// 2. We instantly update the UI (Optimistic Update)
+// 3. We record the timestamp of the mutation
+// 4. We suppress incoming VHAL flows older than (mutation_time + 500ms) to prevent "echo" flickering.
+```
+
+## ADB & VHAL Debugging Commands (Testing)
 
 <adb_testing_instructions>
-To test app implementations without driving a physical vehicle, you must proactively suggest the `cmd car_service` ADB interfaces to spoof or read VHAL data. Use the Hex or Integer IDs included in this document to form accurate terminal commands for the developer.
+Proactively suggest using the **Automotive OS Emulator Extended UI** for testing sensor combinations. When ADB terminal commands are required, note that devices must have root access (`adb root`).
 </adb_testing_instructions>
 
 **Inject/Spoof a VHAL Property Event:**
-This forces the system to believe the HAL just updated a sensor value, which will trigger your app's `callbackFlow`.
 
 ```bash
-# adb shell cmd car_service inject-vhal-event [PROPERTY_ID] [ZONE_ID] [VALUE]
+adb root
 adb shell cmd car_service inject-vhal-event 0x1120040A 0 1 # Spoofs ABS_ACTIVE to True
 ```
 
 **Get Current VHAL Property Value:**
 
 ```bash
-# adb shell cmd car_service get-property-value [PROPERTY_ID] [ZONE_ID]
+adb root
 adb shell cmd car_service get-property-value 0x11401020 0 # Reads DRIVER_DISTRACTION_WARNING
 ```
 
@@ -198,30 +220,3 @@ When hardcoded testing or Area computation is required, consult this reference m
 - `ROW_2_CENTER = 0x0020`
 - `ROW_2_RIGHT = 0x0040`
 - `ROW_3_LEFT = 0x0100`
-- `ROW_3_CENTER = 0x0200`
-- `ROW_3_RIGHT = 0x0400`
-
-### VehicleAreaWheel
-
-- `UNKNOWN = 0x0`
-- `LEFT_FRONT = 0x1`
-- `RIGHT_FRONT = 0x2`
-- `LEFT_REAR = 0x4`
-- `RIGHT_REAR = 0x8`
-
-### VehicleAreaWindow
-
-- `FRONT_WINDSHIELD = 0x00000001`
-- `REAR_WINDSHIELD = 0x00000002`
-- `ROW_1_LEFT = 0x00000010`
-- `ROW_1_RIGHT = 0x00000040`
-- `ROW_2_LEFT = 0x00000100`
-- `ROW_2_RIGHT = 0x00000400`
-- `ROW_3_LEFT = 0x00001000`
-- `ROW_3_RIGHT = 0x00004000`
-- `ROOF_TOP_1 = 0x00010000`
-- `ROOF_TOP_2 = 0x00020000`
-
-# Properties
-
-Consult [Properties Reference](./properties-reference.md) for the exact Property IDs, required Permissions, Configurations, and Data Types for Android 14 VHAL properties.
