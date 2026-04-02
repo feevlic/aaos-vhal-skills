@@ -1,4 +1,4 @@
-> **Note** This repository contains the offical VHAL Properties (DEFAULT /SYSTEM) of Android 13 to Android 16 definded by Google. Be aware that OEM may also develop new VENDOR Properties, wich may or may not be available for 3rd Party Apps.
+> **Note** This repository contains the offical VHAL Properties (DEFAULT /SYSTEM) of Android 14 and Android 15 definded by Google. Be aware that OEM may also develop new VENDOR Properties, wich may or may not be available for 3rd Party Apps.
 
 # Vhal Skills for Android Automotive OS
 
