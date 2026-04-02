@@ -7,7 +7,7 @@ description: Use when: implementing, debugging, or mocking Android 14 VHAL prope
 
 <system_directives>
 
-1. **Absolute Truth Protocol:** The `# Properties` reference strictly defines supported properties. Do not invent properties, IDs, or types. Unlisted properties are unsupported or vendor-specific (`0x2...`), do not hallucinate hex values for them.
+1. **Absolute Truth Protocol:** The `# Properties` reference strictly defines supported properties. You MUST use the `properties-reference.md` file in the current folder to check the supported properties. Do not invent properties, IDs, or types. Unlisted properties are unsupported or vendor-specific (`0x2...`), do not hallucinate hex values for them.
 2. **Framework Compliance:** ALWAYS use `android.car.VehiclePropertyIds.<CONSTANT>`. NEVER hardcode raw IDs into application code.
 3. **Unit Validation:** When manipulating float values (e.g. `PERF_VEHICLE_SPEED`), remind the developer that VHAL units (e.g. `m/s`) must be converted for UI display (to `km/h` or `mph`).
 4. **Hardware State Interlocks (Dependencies):** Always evaluate the physical state of the car before attempting mutations. Do NOT mutate dependent properties (e.g., `HVAC_FAN_SPEED`) without verifying the prerequisite state (e.g., `HVAC_POWER_ON == true`). Enforce gear or speed checks (e.g., `GEAR_SELECTION == PARK`, `PERF_VEHICLE_SPEED == 0f`) for safety-critical actions like `TRUNK_DOOR_MOVE` or `PARKING_BRAKE_ON`.
@@ -67,11 +67,13 @@ import android.car.VehiclePropertyIds
 import android.car.hardware.CarPropertyValue
 import android.car.hardware.property.CarPropertyManager
 import kotlinx.coroutines.channels.awaitClose
+import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
-import kotlinx.coroutines.flow.conflate
+import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 // IMPORTANT: The `CarPropertyManager` instance should be provided via Dependency Injection (e.g., Hilt) if Hilt is inside the project,
 // created once per Application or Activity lifecycle. NEVER instantiate or disconnect `Car` inside a sensor flow.
@@ -95,25 +97,32 @@ fun observeVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Flow<VhalRe
         )
     } catch (e: SecurityException) {
         trySend(VhalResult.PermissionDenied)
+        close()
     } catch (e: IllegalArgumentException) {
         trySend(VhalResult.Unavailable("Property unsupported to observe"))
+        close()
     }
 
     awaitClose {
         // NEVER disconnect the `Car` IPC session here. Only unregister the callback.
         carPropertyManager.unregisterCallback(callback, VehiclePropertyIds.PERF_VEHICLE_SPEED)
     }
-}.conflate() // Use conflate() to drop stale sensor frames if the UI is slow, preventing OOM / jank on high-freq sensors
+}.buffer(capacity = Channel.CONFLATED) // Inherent channel buffering is safer than .conflate()
 .flowOn(Dispatchers.IO)
 ```
 
 ### 3. Safe Synchronous Reads
 
 ```kotlin
-import android.car.hardware.property.PropertyNotAvailableException
+import android.car.VehiclePropertyIds
+import android.car.hardware.property.CarPropertyManager
 
 fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float {
     return try {
+        // Explicitly check config exists rather than rely on PropertyNotAvailableException
+        val config = carPropertyManager.getCarPropertyConfig(VehiclePropertyIds.PERF_VEHICLE_SPEED)
+        if (config == null) return 0f
+
         // Use primitive zero-allocation getters instead of generic wrapper allocations
         val propValue = carPropertyManager.getFloatProperty(
             VehiclePropertyIds.PERF_VEHICLE_SPEED,
@@ -121,10 +130,10 @@ fun readVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Float {
         )
         // VHAL emits speed in meters per second (m/s)
         propValue
-    } catch (e: PropertyNotAvailableException) {
-        0f // Sensor warming up/disabled
     } catch (e: SecurityException) {
         0f // Missing permissions
+    } catch (e: IllegalArgumentException) {
+        0f // Hardware doesn't support the property
     }
 }
 ```
@@ -173,50 +182,11 @@ adb shell dumpsys car_service --services CarPropertyService --list
 
 <area_computation_protocol>
 Many vehicle properties are zoned (e.g., they apply uniquely to specific doors, seats, or windows).
-**Dynamic Area IDs**: Instead of hardcoding the static bitmasks below (which is an anti-pattern as vehicles have different hardware components), ALWAYS instruct developers to dynamically query supported areas at runtime:
+**Dynamic Area IDs**: Instead of hardcoding the static bitmasks (which is an anti-pattern as vehicles have different hardware components), ALWAYS instruct developers to dynamically query supported areas at runtime:
 
 ```kotlin
 val supportedAreaIds = carPropertyManager.getCarPropertyConfig(VehiclePropertyIds.PROPERTY_NAME)?.areaIds
 ```
 
-When hardcoded testing or Area computation is required, consult this reference map to construct the correct `AreaId` integer. Never attempt to guess area IDs.
+Never attempt to guess area IDs. Always query the vehicle hardware properties directly dynamically.
 </area_computation_protocol>
-
-### VehicleArea
-
-- `GLOBAL = 0x01000000`
-- `WINDOW = 0x03000000`
-- `MIRROR = 0x04000000`
-- `SEAT = 0x05000000`
-- `DOOR = 0x06000000`
-- `WHEEL = 0x07000000`
-- `VENDOR = 0x08000000`
-- `MASK = 0x0f000000`
-
-### VehicleAreaDoor
-
-- `ROW_1_LEFT = 0x00000001`
-- `ROW_1_RIGHT = 0x00000004`
-- `ROW_2_LEFT = 0x00000010`
-- `ROW_2_RIGHT = 0x00000040`
-- `ROW_3_LEFT = 0x00000100`
-- `ROW_3_RIGHT = 0x00000400`
-- `HOOD = 0x10000000`
-- `REAR = 0x20000000`
-
-### VehicleAreaMirror
-
-- `DRIVER_LEFT = 0x00000001`
-- `DRIVER_RIGHT = 0x00000002`
-- `DRIVER_CENTER = 0x00000004`
-
-### VehicleAreaSeat
-
-- `UNKNOWN = 0x0000`
-- `ROW_1_LEFT = 0x0001`
-- `ROW_1_CENTER = 0x0002`
-- `ROW_1_RIGHT = 0x0004`
-- `ROW_2_LEFT = 0x0010`
-- `ROW_2_CENTER = 0x0020`
-- `ROW_2_RIGHT = 0x0040`
-- `ROW_3_LEFT = 0x0100`
