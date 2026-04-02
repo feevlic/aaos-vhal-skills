@@ -15,6 +15,6 @@ This directory contains strictly validated, production-ready instructions for AI
 
 You will notice that the core directives (`SKILL.md`) and the VHAL property definitions (`properties-reference.md`) are separated. This is an intentional design choice for modern LLMs:
 
-- **Context Window Optimization:** The Android 15 VHAL contains over 220 complex properties. Injecting all of them into a single prompt wastes tokens and degrades the AI's memory for your actual code.
+- **Context Window Optimization:** The Android 15 VHAL contains over 250 complex properties. Injecting all of them into a single prompt wastes tokens and degrades the AI's memory for your actual code.
 - **Progressive Loading:** By separating the registry into a reference document, AI agents can employ progressive loading or retrieval-augmented generation (RAG). The agent keeps the core coding patterns from `SKILL.md` in mind, but only reads `properties-reference.md` when a specific property lookup is required.
 - **Latency and Accuracy:** Keeping the primary instruction file lean reduces AI response times and prevents hallucinations during general development tasks.
