@@ -2,6 +2,8 @@
 
 This directory contains strictly validated, production-ready instructions for AI coding assistants (like GitHub Copilot, Cursor, Claude, or Codex) to help you build against the Android 14 Vehicle Hardware Abstraction Layer (VHAL). All properties, data types, and constraints map exactly to the canonical AOSP source.
 
+This skill is aware of 223 properties.
+
 ## How to use it
 
 1. Copy this directory into your project.
