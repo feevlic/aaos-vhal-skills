@@ -233,6 +233,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: CROSS_TRAFFIC_MONITORING_ENABLED
 
 - **ID (Int)**: 287313955
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x11201023
 - **AIDL Summary**: Enable or disable Cross Traffic Monitoring.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -246,6 +247,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: CROSS_TRAFFIC_MONITORING_WARNING_STATE
 
 - **ID (Int)**: 289411108
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x11401024
 - **AIDL Summary**: Cross Traffic Monitoring Warning state.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -451,6 +453,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: DRIVER_DISTRACTION_STATE
 
 - **ID (Int)**: 289411102
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x1140101E
 - **AIDL Summary**: Driver distraction state.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -465,6 +468,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: DRIVER_DISTRACTION_SYSTEM_ENABLED
 
 - **ID (Int)**: 287313949
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x1120101D
 - **AIDL Summary**: Enable or disable driver distraction monitoring.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -479,6 +483,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: DRIVER_DISTRACTION_WARNING
 
 - **ID (Int)**: 289411104
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x11401020
 - **AIDL Summary**: Driver distraction warning.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -493,6 +498,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: DRIVER_DISTRACTION_WARNING_ENABLED
 
 - **ID (Int)**: 287313951
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x1120101F
 - **AIDL Summary**: Enable or disable driver distraction warnings.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -507,6 +513,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: DRIVER_DROWSINESS_ATTENTION_STATE
 
 - **ID (Int)**: 289411098
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x1140101A
 - **AIDL Summary**: Driver drowsiness and attention level state.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -521,6 +528,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: DRIVER_DROWSINESS_ATTENTION_SYSTEM_ENABLED
 
 - **ID (Int)**: 287313945
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x11201019
 - **AIDL Summary**: Enable or disable driver drowsiness and attention monitoring.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -535,6 +543,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: DRIVER_DROWSINESS_ATTENTION_WARNING
 
 - **ID (Int)**: 289411100
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x1140101C
 - **AIDL Summary**: Driver drowsiness and attention warning.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -549,6 +558,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: DRIVER_DROWSINESS_ATTENTION_WARNING_ENABLED
 
 - **ID (Int)**: 287313947
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x1120101B
 - **AIDL Summary**: Enable or disable driver drowsiness and attention warnings.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -563,6 +573,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: ELECTRONIC_STABILITY_CONTROL_ENABLED
 
 - **ID (Int)**: 287310862
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x1120040E
 - **AIDL Summary**: Enable or disable Electronic Stability Control (ESC).
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -576,6 +587,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: ELECTRONIC_STABILITY_CONTROL_STATE
 
 - **ID (Int)**: 289408015
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x1140040F
 - **AIDL Summary**: Electronic Stability Control (ESC) state.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -721,6 +733,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: EV_BATTERY_AVERAGE_TEMPERATURE
 
 - **ID (Int)**: 291504910
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x1160030E
 - **AIDL Summary**: EV battery average temperature
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
@@ -1180,6 +1193,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: HEAD_UP_DISPLAY_ENABLED
 
 - **ID (Int)**: 354421254
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x15200A06
 - **AIDL Summary**: Head up display (HUD) enabled
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -1624,6 +1638,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: IMPACT_DETECTED
 
 - **ID (Int)**: 289407792
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x11400330
 - **AIDL Summary**: Impact detected.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -1901,6 +1916,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: LOW_SPEED_AUTOMATIC_EMERGENCY_BRAKING_ENABLED
 
 - **ID (Int)**: 287313957
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x11201025
 - **AIDL Summary**: Enable or disable Low Speed Automatic Emergency Braking.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -1914,6 +1930,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: LOW_SPEED_AUTOMATIC_EMERGENCY_BRAKING_STATE
 
 - **ID (Int)**: 289411110
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x11401026
 - **AIDL Summary**: Low Speed Automatic Emergency Braking state.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -1928,6 +1945,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: LOW_SPEED_COLLISION_WARNING_ENABLED
 
 - **ID (Int)**: 287313953
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x11201021
 - **AIDL Summary**: Enable or disable Low Speed Collision Warning.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -1941,6 +1959,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: LOW_SPEED_COLLISION_WARNING_STATE
 
 - **ID (Int)**: 289411106
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x11401022
 - **AIDL Summary**: Low Speed Collision Warning State state.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -2308,6 +2327,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: SEAT_AIRBAGS_DEPLOYED
 
 - **ID (Int)**: 356518821
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x15400BA5
 - **AIDL Summary**: State of deployment for seat airbags.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -2496,6 +2516,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: SEAT_BELT_PRETENSIONER_DEPLOYED
 
 - **ID (Int)**: 354421670
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x15200BA6
 - **AIDL Summary**: Seat belt pretensioner deployed.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -3353,6 +3374,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: ULTRASONICS_SENSOR_DETECTION_RANGE
 
 - **ID (Int)**: 406916131
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x18410C23
 - **AIDL Summary**: Static data for the detection range of each ultrasonic sensor in millimeters.
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
@@ -3389,6 +3411,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: ULTRASONICS_SENSOR_FIELD_OF_VIEW
 
 - **ID (Int)**: 406916130
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x18410C22
 - **AIDL Summary**: Static data for the field of view of each ultrasonic sensor in degrees.
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
@@ -3425,6 +3448,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: ULTRASONICS_SENSOR_MEASURED_DISTANCE
 
 - **ID (Int)**: 406916133
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x18410C25
 - **AIDL Summary**: The distance reading of the nearest detected object per sensor in millimeters.
 - **Change Mode**: VehiclePropertyChangeMode.CONTINUOUS
@@ -3461,6 +3485,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: ULTRASONICS_SENSOR_ORIENTATION
 
 - **ID (Int)**: 409013281
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x18610C21
 - **AIDL Summary**: Static data for the orientation of each ultrasonic sensor installed on the vehicle.
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
@@ -3497,6 +3522,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: ULTRASONICS_SENSOR_POSITION
 
 - **ID (Int)**: 406916128
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x18410C20
 - **AIDL Summary**: Static data for the position of each ultrasonic sensor installed on the vehicle.
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
@@ -3533,6 +3559,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: ULTRASONICS_SENSOR_SUPPORTED_RANGES
 
 - **ID (Int)**: 406916132
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x18410C24
 - **AIDL Summary**: Static data for the supported ranges of each ultrasonic sensor in millimeters.
 - **Change Mode**: VehiclePropertyChangeMode.STATIC
@@ -3577,6 +3604,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: VALET_MODE_ENABLED
 
 - **ID (Int)**: 287312389
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x11200A05
 - **AIDL Summary**: Valet mode enabled
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
@@ -3601,6 +3629,7 @@ This file contains all the extracted, verified VHAL properties for Android 15.
 ### Property Name: VEHICLE_DRIVING_AUTOMATION_CURRENT_LEVEL
 
 - **ID (Int)**: 289410892
+- **Flagged API**: FLAG_ANDROID_VIC_VEHICLE_PROPERTIES
 - **Hex Value**: 0x11400F4C
 - **AIDL Summary**: Current state of vehicle autonomy.
 - **Change Mode**: VehiclePropertyChangeMode.ON_CHANGE
