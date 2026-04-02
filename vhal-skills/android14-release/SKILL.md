@@ -97,15 +97,15 @@ fun observeVehicleSpeedSafe(carPropertyManager: CarPropertyManager): Flow<VhalRe
         )
     } catch (e: SecurityException) {
         trySend(VhalResult.PermissionDenied)
-        close()
+        close(e)
     } catch (e: IllegalArgumentException) {
         trySend(VhalResult.Unavailable("Property unsupported to observe"))
-        close()
+        close(e)
     }
 
+    // Must unregister when the flow collector cancels
     awaitClose {
-        // NEVER disconnect the `Car` IPC session here. Only unregister the callback.
-        carPropertyManager.unregisterCallback(callback, VehiclePropertyIds.PERF_VEHICLE_SPEED)
+        carPropertyManager.unregisterCallback(callback)
     }
 }.buffer(capacity = Channel.CONFLATED) // Inherent channel buffering is safer than .conflate()
 .flowOn(Dispatchers.IO)
