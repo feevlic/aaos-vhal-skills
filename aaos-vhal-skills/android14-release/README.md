@@ -6,8 +6,8 @@ This skill covers 223 properties.
 
 ## Structure
 
-- [**properties-reference**](./properties-reference.md): Holds the standard AAOS 14 properties.
-- [**SKILL**](./SKILL.md): Android 14 Skill
+- [**properties-reference.md**](./properties-reference.md): Holds the standard AAOS 14 properties.
+- [**SKILL.md**](./SKILL.md): Android 14 Skill
 
 ## How to Use
 
