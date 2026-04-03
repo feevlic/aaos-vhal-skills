@@ -3,8 +3,6 @@
 
 # VHAL Skills for Android Automotive OS
 
-A massive thank you to [@google](https://github.com/google) for loving open source. Without your documentation, this repository wouldn't exist. Keep being awesome!
-
 ## Structure
 
 - [**aaos-vhal-skills**](./aaos-vhal-skills/): Holds the standard AOSP properties.
@@ -21,3 +19,16 @@ A massive thank you to [@google](https://github.com/google) for loving open sour
 ## Future Versions
 
 If Google ever decides to bless us with a new Android OS version and a completely revamped VHAL, I'll eventually get around to releasing a new skill for it.
+
+## Acknowledgment
+
+A massive thank you to [@google](https://github.com/google) for loving open source. Without your documentation, this repository wouldn't exist. Keep being awesome!
+
+<br>
+
+<div align="left">
+  <p>Sincerely, feevlic</p>
+  <a href="https://github.com/feevlic">
+    <img src="https://github.com/feevlic.png?size=50" width="50" height="50" alt="feevlic profile picture" style="border-radius: 50%;">
+  </a>
+</div>
