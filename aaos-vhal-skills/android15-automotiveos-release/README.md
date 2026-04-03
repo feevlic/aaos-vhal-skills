@@ -1,22 +1,27 @@
-# Android 15 Automotive OS VHAL AI Instructions
+# Android 15 Automotive OS VHAL Instructions
 
-This directory contains strictly validated, production-ready instructions for AI coding assistants (like GitHub Copilot, Cursor, Claude, or Codex) to help you build against the Android 15 Vehicle Hardware Abstraction Layer (VHAL). All properties, data types, and constraints map exactly to the canonical AOSP source.
+This directory contains instructions for coding assistants (like GitHub Copilot, Cursor, Claude, or Codex) to help you build against the Android 15 Vehicle Hardware Abstraction Layer (VHAL). All properties, data types, and constraints map to the AOSP source.
 
-This skill is aware of 254 properties.
+This skill covers 254 properties.
 
-## How to use it
+## Structure
+
+- [**properties-reference**](./properties-reference.md): Holds the standard AAOS 15 properties.
+- [**SKILL**](./SKILL.md): Android 15 Skill
+
+## How to Use
 
 1. Copy this directory into your project.
-2. Point your AI assistant to the `SKILL.md` file. You can do this by:
+2. Point your assistant to the `SKILL.md` file. You can do this by:
    - Adding a reference in your `.cursorrules` or `.vscode/copilot-instructions.md`.
    - Uploading it to your Claude Project Knowledge.
-   - Feeding it directly to your CLI agent.
-3. Keep `SKILL.md` and `properties-reference.md` in the same directory. The AI relies on relative linking to resolve properties contextually.
+   - Feeding it directly to your CLI tool.
+3. Keep `SKILL.md` and `properties-reference.md` in the same directory. The tools rely on relative linking to resolve properties.
 
-## Why the files are split
+## File Organization
 
-You will notice that the core directives (`SKILL.md`) and the VHAL property definitions (`properties-reference.md`) are separated. This is an intentional design choice for modern LLMs:
+You will notice that the core directives (`SKILL.md`) and the VHAL property definitions (`properties-reference.md`) are separated. This is an intentional design choice:
 
-- **Context Window Optimization:** The Android 15 VHAL contains over 250 complex properties. Injecting all of them into a single prompt wastes tokens and degrades the AI's memory for your actual code.
-- **Progressive Loading:** By separating the registry into a reference document, AI agents can employ progressive loading or retrieval-augmented generation (RAG). The agent keeps the core coding patterns from `SKILL.md` in mind, but only reads `properties-reference.md` when a specific property lookup is required.
-- **Latency and Accuracy:** Keeping the primary instruction file lean reduces AI response times and prevents hallucinations during general development tasks.
+- **Token Limits:** The Android 15 VHAL contains over 250 complex properties. Injecting all of them into a single prompt wastes space and degrades the tool's memory for your actual code.
+- **On-Demand Loading:** By separating the registry into a reference document, the tools can look up information as needed. The core coding patterns from `SKILL.md` are always kept in mind, but `properties-reference.md` is only read when a specific property lookup is required.
+- **Latency and Accuracy:** Keeping the primary instruction file lean reduces response times and prevents mistakes during general development tasks.
