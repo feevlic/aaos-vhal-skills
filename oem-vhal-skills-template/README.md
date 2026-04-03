@@ -2,6 +2,11 @@
 
 This folder contains the instructions on how to create your own skill file if you are working at an OEM and want to improve the speed of internal or external contributors taking care of the Application Layer or any Service/Manager in the Android Framework that communicates with your individual set of Properties.
 
+## Structure
+
+- [**properties-reference-template.md**](./properties-reference-template.md): Holds the OEM properties.
+- [**SKILL-template.md**](./SKILL-template.md): OEM Skill
+
 ## How to Use
 
 1. Browse the structure of the `aaos-vhal-skills` directory to get a feel for how to lay out the files.
