@@ -25,3 +25,11 @@ You will notice that the core directives (`SKILL.md`) and the VHAL property defi
 - **Token Limits:** The Android 14 VHAL contains over 220 complex properties. Injecting all of them into a single prompt wastes space and degrades the tool's memory for your actual code.
 - **On-Demand Loading:** By separating the registry into a reference document, the tools can look up information as needed. The core coding patterns from `SKILL.md` are always kept in mind, but `properties-reference.md` is only read when a specific property lookup is required.
 - **Latency and Accuracy:** Keeping the primary instruction file lean reduces response times and prevents mistakes during general development tasks.
+
+## Sources
+
+This skillset is based on the `android14-release` tag of the Android Open Source Project (AOSP). To ensure accuracy and maintain transparency, the primary sources used to extract these properties are listed below:
+
+- [**DefaultProperties.json**](https://android.googlesource.com/platform/hardware/interfaces/+/refs/heads/android14-release/automotive/vehicle/aidl/impl/default_config/config/DefaultProperties.json)
+- [**Vehicle Aidl Files**](https://android.googlesource.com/platform/hardware/interfaces/+/refs/heads/android14-release/automotive/vehicle/aidl_property/android/hardware/automotive/vehicle)
+- [**VehiclePropertyIds.java**](https://android.googlesource.com/platform/packages/services/Car/+/refs/heads/android14-release/car-lib/src/android/car/VehiclePropertyIds.java)
