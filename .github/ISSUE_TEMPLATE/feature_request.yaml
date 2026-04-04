@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest an idea for the aaos-vhal-skills project
+labels:
+  - enhancement
+  - triage-needed
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for suggesting a feature!
+
+        <!-- Please search existing issues to avoid creating duplicates -->
+
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: Feature description
+      description: Describe the feature you'd like to see added or improved.
+    validations:
+      required: true

@@ -1,0 +1,48 @@
+name: Bug report
+description: Create a report to help me improve the aaos-vhal-skill
+labels:
+  - bug
+  - triage-needed
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting an issue.
+
+        This issue tracker is for bugs and issues found in the **aaos-vhal-skill**.
+        Please fill in as much of the form as possible.
+
+  - type: dropdown
+    id: affected_component
+    attributes:
+      label: Affected component
+      description: Which component of the aaos-vhal-skill is affected?
+      options:
+        - android14-release
+        - android15-automotiveos-release
+        - oem-vhal-skills-template
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: Please describe what you expected to happen. Textual output is preferred over screenshots.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      description: Please provide screenshots, videos, or textual output of what you observed.
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional information
+      description: Include anything else you think may help me investigate.
